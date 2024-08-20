@@ -1,0 +1,20 @@
+# ninja log v6
+22	192	7458771039016825	C:/Users/Admin/Documents/QtProjects/TimberAssetManager/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/CMakeFiles/cmake.verify_globs	618067967983fbcf
+212	759	7458771040837129	C:/Users/Admin/Documents/QtProjects/TimberAssetManager/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/TimberAssetManager_autogen/timestamp	775ba6af041b06a3
+212	759	7458771040837129	TimberAssetManager_autogen/timestamp	775ba6af041b06a3
+212	759	7458771040837129	TimberAssetManager_autogen/mocs_compilation.cpp	775ba6af041b06a3
+212	759	7458771040837129	C:/Users/Admin/Documents/QtProjects/TimberAssetManager/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/TimberAssetManager_autogen/mocs_compilation.cpp	775ba6af041b06a3
+2308	7263	7458768664177522	CMakeFiles/TimberAssetManager.dir/TimberAssetManager_autogen/mocs_compilation.cpp.obj	5b512c7ccf42dedf
+2321	7368	7458768664177522	CMakeFiles/TimberAssetManager.dir/main.cpp.obj	e5ff8da2b700c2ef
+761	4339	7458771046396966	CMakeFiles/TimberAssetManager.dir/mainwindow.cpp.obj	5288ebda2a56fa0e
+4340	4792	7458771082188879	TimberAssetManager.exe	e57004596a687185
+203	2001	7447579021358102	build.ninja	1ae727f826c7f63
+26	189	7458771147463655	C:/Users/Admin/Documents/QtProjects/TimberAssetManager/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/CMakeFiles/cmake.verify_globs	618067967983fbcf
+22	243	7458773293567364	C:/Users/Admin/Documents/QtProjects/TimberAssetManager/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/CMakeFiles/cmake.verify_globs	618067967983fbcf
+266	682	7458773295855603	TimberAssetManager_autogen/timestamp	775ba6af041b06a3
+266	682	7458773295855603	TimberAssetManager_autogen/mocs_compilation.cpp	775ba6af041b06a3
+266	682	7458773295855603	C:/Users/Admin/Documents/QtProjects/TimberAssetManager/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/TimberAssetManager_autogen/timestamp	775ba6af041b06a3
+266	682	7458773295855603	C:/Users/Admin/Documents/QtProjects/TimberAssetManager/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/TimberAssetManager_autogen/mocs_compilation.cpp	775ba6af041b06a3
+684	4257	7458773300159914	CMakeFiles/TimberAssetManager.dir/mainwindow.cpp.obj	5288ebda2a56fa0e
+4258	4712	7458773335916414	TimberAssetManager.exe	e57004596a687185
+23	193	7458773380907697	C:/Users/Admin/Documents/QtProjects/TimberAssetManager/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/CMakeFiles/cmake.verify_globs	618067967983fbcf

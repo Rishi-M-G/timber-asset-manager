@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>874</width>
+    <height>436</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Asset Management Tool - Timber</string>
+  </property>
+  <widget class="QWidget" name="centrawidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_5">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="2,1">
+      <item>
+       <widget class="QWidget" name="contentBox" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QWidget {
+    border: 1px solid #000000;  /* Black border */
+    background-color: #E4F6F8;  /* Pale grey background */
+	border-radius: 5px;
+}
+QWidget:hover {
+    border: 2px solid #a2a2d0;  /* Changes border color on hover */
+}</string>
+        </property>
+        <widget class="QTabWidget" name="MaintabWidget">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>10</y>
+           <width>541</width>
+           <height>241</height>
+          </rect>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QTabWidget::tab-bar {
+}
+
+QTabBar::tab {
+	color: #333333; /* Dark gray text color */
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                 stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
+                                 stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
+    border: 1px solid #C4C4C3;
+    border-bottom-color: #C2C7CB; /* same as the pane color */
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    min-width: 8ex;
+    padding: 2px;
+}
+
+QTabBar::tab:selected, QTabBar::tab:hover {
+    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                 stop: 0 #fafafa, stop: 0.4 #f4f4f4,
+                                 stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);
+}
+
+QTabBar::tab:selected {
+    border-color: #9B9B9B;
+    border-bottom-color: #C2C7CB; /* same as pane color */
+}
+
+QTabBar::tab:!selected {
+    margin-top: 2px; /* make non-selected tabs look smaller */
+}
+
+
+QTabWidget::pane {
+    border: 0.5px #C4C4C3;
+    background-color: #F8F8F8; /* Sets background color of the content area */
+}
+</string>
+         </property>
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="graphicsTab">
+          <attribute name="title">
+           <string>Graphics</string>
+          </attribute>
+          <widget class="QTabWidget" name="subTabs">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>541</width>
+             <height>221</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">QTabWidget::pane {
+    border: none;
+    background-color: #F8F8F8; /* Sets background color of the content area */
+}</string>
+           </property>
+           <property name="currentIndex">
+            <number>0</number>
+           </property>
+           <widget class="QWidget" name="backgroundTab">
+            <attribute name="title">
+             <string>Background</string>
+            </attribute>
+            <widget class="QListWidget" name="backgroundList">
+             <property name="geometry">
+              <rect>
+               <x>-5</x>
+               <y>0</y>
+               <width>551</width>
+               <height>191</height>
+              </rect>
+             </property>
+            </widget>
+           </widget>
+           <widget class="QWidget" name="playerTab">
+            <attribute name="title">
+             <string>Player</string>
+            </attribute>
+           </widget>
+           <widget class="QWidget" name="cloudTab">
+            <attribute name="title">
+             <string>Cloud</string>
+            </attribute>
+           </widget>
+           <widget class="QWidget" name="beeTab">
+            <attribute name="title">
+             <string>Bee</string>
+            </attribute>
+           </widget>
+           <widget class="QWidget" name="treeTab">
+            <attribute name="title">
+             <string>Tree</string>
+            </attribute>
+           </widget>
+           <widget class="QWidget" name="branchTab">
+            <attribute name="title">
+             <string>Branch</string>
+            </attribute>
+           </widget>
+           <widget class="QWidget" name="logTab">
+            <attribute name="title">
+             <string>Log</string>
+            </attribute>
+           </widget>
+           <widget class="QWidget" name="gravestoneTab">
+            <attribute name="title">
+             <string>Grave Stone</string>
+            </attribute>
+           </widget>
+          </widget>
+         </widget>
+         <widget class="QWidget" name="audioTab">
+          <attribute name="title">
+           <string>Audio</string>
+          </attribute>
+         </widget>
+         <widget class="QWidget" name="fontTab">
+          <attribute name="title">
+           <string>Font</string>
+          </attribute>
+         </widget>
+        </widget>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="previewPane" native="true">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QWidget {
+    border: 1px solid #000000;  /* Black border */
+    background-color: #E4F6F8;  /* Pale grey background */
+	border-radius: 5px;
+}
+QWidget:hover {
+    border: 2px solid red;  /* Changes border color on hover */
+}</string>
+        </property>
+        <widget class="QGraphicsView" name="imagePreview">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>10</y>
+           <width>256</width>
+           <height>261</height>
+          </rect>
+         </property>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
