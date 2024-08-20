@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     scene = new QGraphicsScene(this);
     ui->imagePreview->setScene(scene);
+    ui->imagePreview->setAlignment(Qt::AlignCenter);
 
     connect(ui->backgroundList,&QListWidget::itemClicked,this,[this](QListWidgetItem* item) {
         QString fullPath = "C:/Users/Admin/source/repos/Timber/graphics/"+item->text();
@@ -45,8 +46,24 @@ void MainWindow::populateImageList(){
 void MainWindow::updateImagePreview(const QString &imagePath){
     QPixmap image(imagePath);
     scene->clear(); // Clear Previous items
-    scene->addPixmap(image);
-    ui->imagePreview->fitInView(scene->itemsBoundingRect(),Qt::KeepAspectRatio);
+
+    // Check if image is not null or not
+    if(!image.isNull()){
+        scene->addPixmap(image); // Adding Image to Scene
+        scene->setSceneRect(image.rect()); // Adjusting scene size to image size
+
+    // Deciding whether to fit the image or use a customer scaling factor
+    if(image.width() < 500 & image.height() < 500){
+        // For smaller images, ensure they are not scaled too much
+        ui->imagePreview->resetTransform(); // Reset any previous scalings
+        ui->imagePreview->scale(0.8,0.8); // Scaling Factor
+    }else {
+        ui->imagePreview->fitInView(scene->itemsBoundingRect(),Qt::KeepAspectRatio);
+    }
+    }else{
+        qDebug() << "Failed to load image: "<<imagePath;
+
+    }
 }
 // ***********
 
