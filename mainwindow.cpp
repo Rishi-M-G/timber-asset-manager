@@ -27,8 +27,13 @@ void MainWindow::populateImageList(){
     QString folderPath = "C:/Users/Admin/source/repos/Timber/graphics";
     QDir dir(folderPath);
 
+    // Filtering out only the images
+    QStringList filters;
+    filters << "*.png" << "*.jpg" << ".jpeg" << ".bmp";
+
+
     // Getting the list of files
-    QFileInfoList fileList = dir.entryInfoList(QDir::Files | QDir::NoDotAndDotDot);
+    QFileInfoList fileList = dir.entryInfoList(filters,QDir::Files | QDir::NoDotAndDotDot);
 
     // Find the list widget by object name
     QListWidget* listWidget = findChild<QListWidget*>("backgroundList");
