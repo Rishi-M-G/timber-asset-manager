@@ -84,13 +84,13 @@ QTabWidget::pane {
 </string>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="graphicsTab">
           <attribute name="title">
            <string>Graphics</string>
           </attribute>
-          <widget class="QTabWidget" name="subTabs">
+          <widget class="QTabWidget" name="graphicSubTabs">
            <property name="geometry">
             <rect>
              <x>0</x>
@@ -170,6 +170,32 @@ QTabWidget::pane {
            <string>Font</string>
           </attribute>
          </widget>
+        </widget>
+        <widget class="QPushButton" name="btnAddItem">
+         <property name="geometry">
+          <rect>
+           <x>450</x>
+           <y>310</y>
+           <width>80</width>
+           <height>24</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Add Item</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="addItemStatus">
+         <property name="geometry">
+          <rect>
+           <x>340</x>
+           <y>310</y>
+           <width>91</width>
+           <height>21</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
         </widget>
        </widget>
       </item>

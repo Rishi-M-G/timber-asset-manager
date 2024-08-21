@@ -113,6 +113,7 @@ C:/Users/Admin/Documents/QtProjects/TimberAssetManager/build/Desktop_Qt_6_5_3_Mi
   C:/Qt/6.5.3/mingw_64/include/QtCore/qtversionchecks.h \
   C:/Qt/6.5.3/mingw_64/include/QtCore/qtypeinfo.h \
   C:/Qt/6.5.3/mingw_64/include/QtCore/qtypes.h \
+  C:/Qt/6.5.3/mingw_64/include/QtCore/qurl.h \
   C:/Qt/6.5.3/mingw_64/include/QtCore/qutf8stringview.h \
   C:/Qt/6.5.3/mingw_64/include/QtCore/qvariant.h \
   C:/Qt/6.5.3/mingw_64/include/QtCore/qvarlengtharray.h \
@@ -144,10 +145,15 @@ C:/Users/Admin/Documents/QtProjects/TimberAssetManager/build/Desktop_Qt_6_5_3_Mi
   C:/Qt/6.5.3/mingw_64/include/QtGui/qtransform.h \
   C:/Qt/6.5.3/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.5.3/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.5.3/mingw_64/include/QtWidgets/QFileDialog \
   C:/Qt/6.5.3/mingw_64/include/QtWidgets/QGraphicsScene \
   C:/Qt/6.5.3/mingw_64/include/QtWidgets/QMainWindow \
+  C:/Qt/6.5.3/mingw_64/include/QtWidgets/QMessageBox \
+  C:/Qt/6.5.3/mingw_64/include/QtWidgets/qdialog.h \
+  C:/Qt/6.5.3/mingw_64/include/QtWidgets/qfiledialog.h \
   C:/Qt/6.5.3/mingw_64/include/QtWidgets/qgraphicsscene.h \
   C:/Qt/6.5.3/mingw_64/include/QtWidgets/qmainwindow.h \
+  C:/Qt/6.5.3/mingw_64/include/QtWidgets/qmessagebox.h \
   C:/Qt/6.5.3/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.5.3/mingw_64/include/QtWidgets/qtabwidget.h \
   C:/Qt/6.5.3/mingw_64/include/QtWidgets/qtwidgets-config.h \

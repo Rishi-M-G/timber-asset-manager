@@ -8,16 +8,21 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     // My Additions
+
+    // Populating image list from corresponding graphics folder
     populateImageList();
 
+    // Connection for Image Preview
     scene = new QGraphicsScene(this);
     ui->imagePreview->setScene(scene);
     ui->imagePreview->setAlignment(Qt::AlignCenter);
-
     connect(ui->backgroundList,&QListWidget::itemClicked,this,[this](QListWidgetItem* item) {
         QString fullPath = "C:/Users/Admin/source/repos/Timber/graphics/"+item->text();
         updateImagePreview(fullPath);
     });
+
+    // Adding an item
+    connect(ui->btnAddItem, &QPushButton::clicked, this,&MainWindow::handleAddItem);
     //*************
 }
 
@@ -68,6 +73,53 @@ void MainWindow::updateImagePreview(const QString &imagePath){
     }else{
         qDebug() << "Failed to load image: "<<imagePath;
 
+    }
+}
+
+void MainWindow::handleAddItem(){
+    // Open file dialog to select an asset
+    QString selectedFilter;
+    QString filePath = QFileDialog::getOpenFileName (this,tr("Select File"),"",tr("Image Files (*.png *.jpg *.jpeg);;Audio Files (*.mp3 *.wav);;Font Files(*.ttf);;All Files(*)"),&selectedFilter);
+    if(filePath.isEmpty())
+        return; // User Cancelled or no file selected
+
+    // Determine the target Directory based on the currently active tab and subtab
+    QString targetDirectory;
+    int currentTabIndex = ui->MaintabWidget->currentIndex();
+
+    // Graphics Tab
+    if(currentTabIndex == ui->MaintabWidget->indexOf(ui->graphicsTab)){
+        int subTabIndex = ui->graphicSubTabs->currentIndex();
+        switch(subTabIndex){
+        case 0: // Background
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics";
+            break;
+        case 1: // Player
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics";
+            break;
+        // Will add other tabs later
+        }
+    }
+    // Audio Tab
+    else if (currentTabIndex == ui->MaintabWidget->indexOf(ui->audioTab)){
+        targetDirectory = "C:/Users/Admin/source/repos/Timber/Sound";
+    }
+    // Fonts Tab
+    else if (currentTabIndex == ui->MaintabWidget->indexOf(ui->fontTab)){
+        targetDirectory = "C:/Users/Admin/source/repos/Timber/Fonts";
+    }
+
+    // Constructing the target file path
+    QFileInfo fileInfo(filePath);
+    QString targetFilePath = targetDirectory + "/" + fileInfo.fileName();
+
+    // Copy the file to the target directory
+    if(QFile::copy(filePath,targetFilePath)){
+        ui->addItemStatus->setText("File Added");
+        populateImageList();
+    }else{
+        ui->addItemStatus->setText("Failed");
+        QMessageBox::warning(this, "Error", "Failed to add file to the directory.");
     }
 }
 // ***********

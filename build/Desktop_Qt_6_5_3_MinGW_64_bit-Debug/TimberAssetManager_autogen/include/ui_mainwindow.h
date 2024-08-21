@@ -13,8 +13,10 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QHBoxLayout>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QWidget>
 
@@ -29,7 +31,7 @@ public:
     QWidget *contentBox;
     QTabWidget *MaintabWidget;
     QWidget *graphicsTab;
-    QTabWidget *subTabs;
+    QTabWidget *graphicSubTabs;
     QWidget *backgroundTab;
     QListWidget *backgroundList;
     QWidget *playerTab;
@@ -41,6 +43,8 @@ public:
     QWidget *gravestoneTab;
     QWidget *audioTab;
     QWidget *fontTab;
+    QPushButton *btnAddItem;
+    QLabel *addItemStatus;
     QWidget *previewPane;
     QGraphicsView *imagePreview;
 
@@ -113,10 +117,10 @@ public:
 ""));
         graphicsTab = new QWidget();
         graphicsTab->setObjectName("graphicsTab");
-        subTabs = new QTabWidget(graphicsTab);
-        subTabs->setObjectName("subTabs");
-        subTabs->setGeometry(QRect(0, 0, 541, 221));
-        subTabs->setStyleSheet(QString::fromUtf8("QTabWidget::pane {\n"
+        graphicSubTabs = new QTabWidget(graphicsTab);
+        graphicSubTabs->setObjectName("graphicSubTabs");
+        graphicSubTabs->setGeometry(QRect(0, 0, 541, 221));
+        graphicSubTabs->setStyleSheet(QString::fromUtf8("QTabWidget::pane {\n"
 "    border: none;\n"
 "    background-color: #F8F8F8; /* Sets background color of the content area */\n"
 "}"));
@@ -125,28 +129,28 @@ public:
         backgroundList = new QListWidget(backgroundTab);
         backgroundList->setObjectName("backgroundList");
         backgroundList->setGeometry(QRect(-5, 0, 551, 191));
-        subTabs->addTab(backgroundTab, QString());
+        graphicSubTabs->addTab(backgroundTab, QString());
         playerTab = new QWidget();
         playerTab->setObjectName("playerTab");
-        subTabs->addTab(playerTab, QString());
+        graphicSubTabs->addTab(playerTab, QString());
         cloudTab = new QWidget();
         cloudTab->setObjectName("cloudTab");
-        subTabs->addTab(cloudTab, QString());
+        graphicSubTabs->addTab(cloudTab, QString());
         beeTab = new QWidget();
         beeTab->setObjectName("beeTab");
-        subTabs->addTab(beeTab, QString());
+        graphicSubTabs->addTab(beeTab, QString());
         treeTab = new QWidget();
         treeTab->setObjectName("treeTab");
-        subTabs->addTab(treeTab, QString());
+        graphicSubTabs->addTab(treeTab, QString());
         branchTab = new QWidget();
         branchTab->setObjectName("branchTab");
-        subTabs->addTab(branchTab, QString());
+        graphicSubTabs->addTab(branchTab, QString());
         logTab = new QWidget();
         logTab->setObjectName("logTab");
-        subTabs->addTab(logTab, QString());
+        graphicSubTabs->addTab(logTab, QString());
         gravestoneTab = new QWidget();
         gravestoneTab->setObjectName("gravestoneTab");
-        subTabs->addTab(gravestoneTab, QString());
+        graphicSubTabs->addTab(gravestoneTab, QString());
         MaintabWidget->addTab(graphicsTab, QString());
         audioTab = new QWidget();
         audioTab->setObjectName("audioTab");
@@ -154,6 +158,12 @@ public:
         fontTab = new QWidget();
         fontTab->setObjectName("fontTab");
         MaintabWidget->addTab(fontTab, QString());
+        btnAddItem = new QPushButton(contentBox);
+        btnAddItem->setObjectName("btnAddItem");
+        btnAddItem->setGeometry(QRect(450, 310, 80, 24));
+        addItemStatus = new QLabel(contentBox);
+        addItemStatus->setObjectName("addItemStatus");
+        addItemStatus->setGeometry(QRect(340, 310, 91, 21));
 
         horizontalLayout_4->addWidget(contentBox);
 
@@ -184,8 +194,8 @@ public:
 
         retranslateUi(MainWindow);
 
-        MaintabWidget->setCurrentIndex(0);
-        subTabs->setCurrentIndex(0);
+        MaintabWidget->setCurrentIndex(2);
+        graphicSubTabs->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -194,17 +204,19 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Asset Management Tool - Timber", nullptr));
-        subTabs->setTabText(subTabs->indexOf(backgroundTab), QCoreApplication::translate("MainWindow", "Background", nullptr));
-        subTabs->setTabText(subTabs->indexOf(playerTab), QCoreApplication::translate("MainWindow", "Player", nullptr));
-        subTabs->setTabText(subTabs->indexOf(cloudTab), QCoreApplication::translate("MainWindow", "Cloud", nullptr));
-        subTabs->setTabText(subTabs->indexOf(beeTab), QCoreApplication::translate("MainWindow", "Bee", nullptr));
-        subTabs->setTabText(subTabs->indexOf(treeTab), QCoreApplication::translate("MainWindow", "Tree", nullptr));
-        subTabs->setTabText(subTabs->indexOf(branchTab), QCoreApplication::translate("MainWindow", "Branch", nullptr));
-        subTabs->setTabText(subTabs->indexOf(logTab), QCoreApplication::translate("MainWindow", "Log", nullptr));
-        subTabs->setTabText(subTabs->indexOf(gravestoneTab), QCoreApplication::translate("MainWindow", "Grave Stone", nullptr));
+        graphicSubTabs->setTabText(graphicSubTabs->indexOf(backgroundTab), QCoreApplication::translate("MainWindow", "Background", nullptr));
+        graphicSubTabs->setTabText(graphicSubTabs->indexOf(playerTab), QCoreApplication::translate("MainWindow", "Player", nullptr));
+        graphicSubTabs->setTabText(graphicSubTabs->indexOf(cloudTab), QCoreApplication::translate("MainWindow", "Cloud", nullptr));
+        graphicSubTabs->setTabText(graphicSubTabs->indexOf(beeTab), QCoreApplication::translate("MainWindow", "Bee", nullptr));
+        graphicSubTabs->setTabText(graphicSubTabs->indexOf(treeTab), QCoreApplication::translate("MainWindow", "Tree", nullptr));
+        graphicSubTabs->setTabText(graphicSubTabs->indexOf(branchTab), QCoreApplication::translate("MainWindow", "Branch", nullptr));
+        graphicSubTabs->setTabText(graphicSubTabs->indexOf(logTab), QCoreApplication::translate("MainWindow", "Log", nullptr));
+        graphicSubTabs->setTabText(graphicSubTabs->indexOf(gravestoneTab), QCoreApplication::translate("MainWindow", "Grave Stone", nullptr));
         MaintabWidget->setTabText(MaintabWidget->indexOf(graphicsTab), QCoreApplication::translate("MainWindow", "Graphics", nullptr));
         MaintabWidget->setTabText(MaintabWidget->indexOf(audioTab), QCoreApplication::translate("MainWindow", "Audio", nullptr));
         MaintabWidget->setTabText(MaintabWidget->indexOf(fontTab), QCoreApplication::translate("MainWindow", "Font", nullptr));
+        btnAddItem->setText(QCoreApplication::translate("MainWindow", "Add Item", nullptr));
+        addItemStatus->setText(QString());
     } // retranslateUi
 
 };
