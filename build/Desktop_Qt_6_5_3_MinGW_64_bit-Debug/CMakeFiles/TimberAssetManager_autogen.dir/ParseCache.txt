@@ -2,6 +2,7 @@
 C:/Users/Admin/Documents/QtProjects/TimberAssetManager/mainwindow.h
  mmc:Q_OBJECT
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/QDir
+ mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/QDirIterator
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/QFileInfoList
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/q20memory.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/q20type_traits.h
@@ -35,6 +36,7 @@ C:/Users/Admin/Documents/QtProjects/TimberAssetManager/mainwindow.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qdatetime.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qdebug.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qdir.h
+ mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qdiriterator.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qexceptionhandling.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qfile.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qfiledevice.h

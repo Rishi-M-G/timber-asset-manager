@@ -84,7 +84,7 @@ QTabWidget::pane {
 </string>
          </property>
          <property name="currentIndex">
-          <number>2</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="graphicsTab">
           <attribute name="title">
@@ -106,7 +106,7 @@ QTabWidget::pane {
 }</string>
            </property>
            <property name="currentIndex">
-            <number>0</number>
+            <number>7</number>
            </property>
            <widget class="QWidget" name="backgroundTab">
             <attribute name="title">
@@ -127,36 +127,106 @@ QTabWidget::pane {
             <attribute name="title">
              <string>Player</string>
             </attribute>
+            <widget class="QListWidget" name="playerList">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>541</width>
+               <height>192</height>
+              </rect>
+             </property>
+            </widget>
            </widget>
            <widget class="QWidget" name="cloudTab">
             <attribute name="title">
              <string>Cloud</string>
             </attribute>
+            <widget class="QListWidget" name="cloudList">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>541</width>
+               <height>192</height>
+              </rect>
+             </property>
+            </widget>
            </widget>
            <widget class="QWidget" name="beeTab">
             <attribute name="title">
              <string>Bee</string>
             </attribute>
+            <widget class="QListWidget" name="beeList">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>541</width>
+               <height>192</height>
+              </rect>
+             </property>
+            </widget>
            </widget>
            <widget class="QWidget" name="treeTab">
             <attribute name="title">
              <string>Tree</string>
             </attribute>
+            <widget class="QListWidget" name="treeList">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>541</width>
+               <height>192</height>
+              </rect>
+             </property>
+            </widget>
            </widget>
            <widget class="QWidget" name="branchTab">
             <attribute name="title">
              <string>Branch</string>
             </attribute>
+            <widget class="QListWidget" name="branchList">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>541</width>
+               <height>192</height>
+              </rect>
+             </property>
+            </widget>
            </widget>
            <widget class="QWidget" name="logTab">
             <attribute name="title">
              <string>Log</string>
             </attribute>
+            <widget class="QListWidget" name="logList">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>541</width>
+               <height>192</height>
+              </rect>
+             </property>
+            </widget>
            </widget>
            <widget class="QWidget" name="gravestoneTab">
             <attribute name="title">
              <string>Grave Stone</string>
             </attribute>
+            <widget class="QListWidget" name="ripList">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>541</width>
+               <height>192</height>
+              </rect>
+             </property>
+            </widget>
            </widget>
           </widget>
          </widget>
@@ -164,11 +234,127 @@ QTabWidget::pane {
           <attribute name="title">
            <string>Audio</string>
           </attribute>
+          <widget class="QTabWidget" name="audioSubTabs">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>541</width>
+             <height>221</height>
+            </rect>
+           </property>
+           <property name="currentIndex">
+            <number>1</number>
+           </property>
+           <widget class="QWidget" name="chopTab">
+            <attribute name="title">
+             <string>Chop</string>
+            </attribute>
+            <widget class="QListWidget" name="chopList">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>541</width>
+               <height>192</height>
+              </rect>
+             </property>
+            </widget>
+           </widget>
+           <widget class="QWidget" name="deathTab">
+            <attribute name="title">
+             <string>Death</string>
+            </attribute>
+            <widget class="QListWidget" name="deathList">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>541</width>
+               <height>192</height>
+              </rect>
+             </property>
+            </widget>
+           </widget>
+           <widget class="QWidget" name="ootTab">
+            <attribute name="title">
+             <string>Out Of Time</string>
+            </attribute>
+            <widget class="QListWidget" name="ootList">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>541</width>
+               <height>192</height>
+              </rect>
+             </property>
+            </widget>
+           </widget>
+          </widget>
          </widget>
          <widget class="QWidget" name="fontTab">
           <attribute name="title">
            <string>Font</string>
           </attribute>
+          <widget class="QTabWidget" name="fontSubTabs">
+           <property name="geometry">
+            <rect>
+             <x>0</x>
+             <y>0</y>
+             <width>541</width>
+             <height>221</height>
+            </rect>
+           </property>
+           <property name="currentIndex">
+            <number>0</number>
+           </property>
+           <widget class="QWidget" name="hudTab">
+            <attribute name="title">
+             <string>Heads Up Display</string>
+            </attribute>
+            <widget class="QListWidget" name="hudList">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>541</width>
+               <height>192</height>
+              </rect>
+             </property>
+            </widget>
+           </widget>
+           <widget class="QWidget" name="scoreTab">
+            <attribute name="title">
+             <string>Score</string>
+            </attribute>
+            <widget class="QListWidget" name="scoreList">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>541</width>
+               <height>192</height>
+              </rect>
+             </property>
+            </widget>
+           </widget>
+           <widget class="QWidget" name="messageTab">
+            <attribute name="title">
+             <string>Message</string>
+            </attribute>
+            <widget class="QListWidget" name="messageList">
+             <property name="geometry">
+              <rect>
+               <x>0</x>
+               <y>0</y>
+               <width>541</width>
+               <height>192</height>
+              </rect>
+             </property>
+            </widget>
+           </widget>
+          </widget>
          </widget>
         </widget>
         <widget class="QPushButton" name="btnAddItem">

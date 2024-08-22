@@ -1,6 +1,7 @@
 C:/Users/Admin/Documents/QtProjects/TimberAssetManager/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/TimberAssetManager_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/Users/Admin/Documents/QtProjects/TimberAssetManager/mainwindow.h \
   C:/Users/Admin/Documents/QtProjects/TimberAssetManager/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/TimberAssetManager_autogen/moc_predefs.h \
   C:/Qt/6.5.3/mingw_64/include/QtCore/QDir \
+  C:/Qt/6.5.3/mingw_64/include/QtCore/QDirIterator \
   C:/Qt/6.5.3/mingw_64/include/QtCore/QFileInfoList \
   C:/Qt/6.5.3/mingw_64/include/QtCore/q20memory.h \
   C:/Qt/6.5.3/mingw_64/include/QtCore/q20type_traits.h \
@@ -34,6 +35,7 @@ C:/Users/Admin/Documents/QtProjects/TimberAssetManager/build/Desktop_Qt_6_5_3_Mi
   C:/Qt/6.5.3/mingw_64/include/QtCore/qdatetime.h \
   C:/Qt/6.5.3/mingw_64/include/QtCore/qdebug.h \
   C:/Qt/6.5.3/mingw_64/include/QtCore/qdir.h \
+  C:/Qt/6.5.3/mingw_64/include/QtCore/qdiriterator.h \
   C:/Qt/6.5.3/mingw_64/include/QtCore/qexceptionhandling.h \
   C:/Qt/6.5.3/mingw_64/include/QtCore/qfile.h \
   C:/Qt/6.5.3/mingw_64/include/QtCore/qfiledevice.h \

@@ -8,6 +8,7 @@
 #include <QGraphicsScene>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QDirIterator>
 //**********
 
 QT_BEGIN_NAMESPACE
@@ -29,7 +30,7 @@ private:
     // My Additions
     QGraphicsScene* scene;
     void updateImagePreview(const QString& imagePath);
-    void populateImageList();
+    void populateItemList();
     void handleAddItem();
 
     //************

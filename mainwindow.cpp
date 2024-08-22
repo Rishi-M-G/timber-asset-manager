@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     // My Additions
 
     // Populating image list from corresponding graphics folder
-    populateImageList();
+    populateItemList();
 
     // Connection for Image Preview
     scene = new QGraphicsScene(this);
@@ -28,29 +28,48 @@ MainWindow::MainWindow(QWidget *parent)
 
 // My Additions
 // Code to Populate List inside graphics tab
-void MainWindow::populateImageList(){
-    QString folderPath = "C:/Users/Admin/source/repos/Timber/graphics";
-    QDir dir(folderPath);
 
-    // Filtering out only the images
-    QStringList filters;
-    filters << "*.png" << "*.jpg" << ".jpeg" << ".bmp";
+void MainWindow::populateItemList() {
+    // Define the paths and corresponding QListWidget names
+    QList<QPair<QString, QString>> folderPaths = {
+        {"backgroundList", "C:/Users/Admin/source/repos/Timber/graphics/background"},
+        {"playerList", "C:/Users/Admin/source/repos/Timber/graphics/player"},
+        {"cloudList", "C:/Users/Admin/source/repos/Timber/graphics/cloud"},
+        {"beeList", "C:/Users/Admin/source/repos/Timber/graphics/bee"},
+        {"treeList", "C:/Users/Admin/source/repos/Timber/graphics/tree"},
+        {"branchList", "C:/Users/Admin/source/repos/Timber/graphics/branch"},
+        {"logList", "C:/Users/Admin/source/repos/Timber/graphics/log"},
+        {"ripList", "C:/Users/Admin/source/repos/Timber/graphics/rip"},
+        {"chopList", "C:/Users/Admin/source/repos/Timber/Sound/chop"},
+        {"deathList", "C:/Users/Admin/source/repos/Timber/Sound/death"},
+        {"ootList", "C:/Users/Admin/source/repos/Timber/Sound/out_of_time"},
+        {"hudList", "C:/Users/Admin/source/repos/Timber/Fonts/HUD"},
+        {"messageList", "C:/Users/Admin/source/repos/Timber/Fonts/Message"},
+        {"scoreList", "C:/Users/Admin/source/repos/Timber/Fonts/Score"}
+    };
 
+    // Filters for different file types
+    QMap<QString, QStringList> filters;
+    filters["graphics"] = QStringList() << "*.png" << "*.jpg" << "*.jpeg" << "*.bmp";
+    filters["audio"] = QStringList() << "*.mp3" << "*.wav";
+    filters["fonts"] = QStringList() << "*.ttf";
 
-    // Getting the list of files
-    QFileInfoList fileList = dir.entryInfoList(filters,QDir::Files | QDir::NoDotAndDotDot);
+    // Iterate over each folder path and populate the corresponding QListWidget
+    for (auto& folder : folderPaths) {
+        QListWidget* listWidget = findChild<QListWidget*>(folder.first);
+        if (listWidget) {
+            listWidget->clear(); // Clear existing items, if any
 
-    // Find the list widget by object name
-    QListWidget* listWidget = findChild<QListWidget*>("backgroundList");
+            QString folderType = folder.second.contains("graphics") ? "graphics" :
+                                     folder.second.contains("Sound") ? "audio" : "fonts";
 
-    if(listWidget){
-        listWidget->clear(); // Clear existing items, if any
-
-        foreach(const QFileInfo &file,fileList){
-            listWidget->addItem(file.fileName()); // Adding file names to the list
+            QDirIterator it(folder.second, filters[folderType], QDir::Files | QDir::NoDotAndDotDot);
+            while (it.hasNext()) {
+                it.next();
+                listWidget->addItem(it.fileName()); // Add file names to the list
+            }
         }
     }
-
 }
 
 void MainWindow::updateImagePreview(const QString &imagePath){
@@ -116,7 +135,7 @@ void MainWindow::handleAddItem(){
     // Copy the file to the target directory
     if(QFile::copy(filePath,targetFilePath)){
         ui->addItemStatus->setText("File Added");
-        populateImageList();
+        populateItemList();
     }else{
         ui->addItemStatus->setText("Failed");
         QMessageBox::warning(this, "Error", "Failed to add file to the directory.");
