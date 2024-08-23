@@ -280,7 +280,7 @@ public:
 
         MaintabWidget->setCurrentIndex(0);
         graphicSubTabs->setCurrentIndex(7);
-        audioSubTabs->setCurrentIndex(1);
+        audioSubTabs->setCurrentIndex(2);
         fontSubTabs->setCurrentIndex(0);
 
 
