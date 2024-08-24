@@ -106,7 +106,7 @@ QTabWidget::pane {
 }</string>
            </property>
            <property name="currentIndex">
-            <number>7</number>
+            <number>0</number>
            </property>
            <widget class="QWidget" name="backgroundTab">
             <attribute name="title">
@@ -244,7 +244,7 @@ QTabWidget::pane {
             </rect>
            </property>
            <property name="currentIndex">
-            <number>2</number>
+            <number>0</number>
            </property>
            <widget class="QWidget" name="chopTab">
             <attribute name="title">

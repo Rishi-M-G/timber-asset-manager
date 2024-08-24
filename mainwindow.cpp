@@ -7,20 +7,47 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    // My Additions
-
-    // Populating image list from corresponding graphics folder
+    /*
+     * Function Call :  Populating image list from corresponding graphics folder
+    */
     populateItemList();
 
+    /*
+     * Image Preview
+    */
     // Connection for Image Preview
     scene = new QGraphicsScene(this);
     ui->imagePreview->setScene(scene);
     ui->imagePreview->setAlignment(Qt::AlignCenter);
-    connect(ui->backgroundList,&QListWidget::itemClicked,this,[this](QListWidgetItem* item) {
-        QString fullPath = "C:/Users/Admin/source/repos/Timber/graphics/"+item->text();
-        updateImagePreview(fullPath);
-    });
 
+    //connection signals for all relevant QListWidget objects
+    QList<QListWidget*> listWidgets = {ui->backgroundList,ui->playerList,ui->cloudList,
+                                        ui->beeList,ui->treeList,ui->branchList,
+                                        ui->logList,ui->ripList,ui->chopList,
+                                        ui->deathList,ui->ootList,ui->hudList,
+                                        ui->messageList,ui->scoreList};
+
+    // Iterating through listWidgets
+    for(QListWidget* listWidget:listWidgets){
+        connect(listWidget,&QListWidget::itemClicked,this,[this,listWidget](QListWidgetItem* item){
+            QString baseFolder = "C:/Users/Admin/source/repos/Timber/";
+            QString subFolder = listWidget->objectName().replace("List","").toLower();
+            QString fullPath;
+            if(listWidget == ui->chopList || listWidget == ui->deathList || listWidget == ui->ootList){
+                fullPath = baseFolder + "Sound/"+subFolder+"/"+item->text();
+            }
+            else if(listWidget == ui->hudList || listWidget == ui->messageList || listWidget == ui->scoreList){
+                fullPath = baseFolder + "Fonts/"+subFolder+"/"+item->text();
+            }
+            else{
+                fullPath = baseFolder + "graphics/"+subFolder+"/"+item->text();
+            }
+            updateImagePreview(fullPath);
+        });
+    }
+    /*
+     * Adding an item
+    */
     // Adding an item
     connect(ui->btnAddItem, &QPushButton::clicked, this,&MainWindow::handleAddItem);
     //*************
@@ -42,10 +69,10 @@ void MainWindow::populateItemList() {
         {"ripList", "C:/Users/Admin/source/repos/Timber/graphics/rip"},
         {"chopList", "C:/Users/Admin/source/repos/Timber/Sound/chop"},
         {"deathList", "C:/Users/Admin/source/repos/Timber/Sound/death"},
-        {"ootList", "C:/Users/Admin/source/repos/Timber/Sound/out_of_time"},
-        {"hudList", "C:/Users/Admin/source/repos/Timber/Fonts/HUD"},
-        {"messageList", "C:/Users/Admin/source/repos/Timber/Fonts/Message"},
-        {"scoreList", "C:/Users/Admin/source/repos/Timber/Fonts/Score"}
+        {"ootList", "C:/Users/Admin/source/repos/Timber/Sound/oot"},
+        {"hudList", "C:/Users/Admin/source/repos/Timber/Fonts/hud"},
+        {"messageList", "C:/Users/Admin/source/repos/Timber/Fonts/message"},
+        {"scoreList", "C:/Users/Admin/source/repos/Timber/Fonts/score"}
     };
 
     // Filters for different file types

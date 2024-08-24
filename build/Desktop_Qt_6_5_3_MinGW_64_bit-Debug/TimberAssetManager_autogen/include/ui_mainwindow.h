@@ -279,8 +279,8 @@ public:
         retranslateUi(MainWindow);
 
         MaintabWidget->setCurrentIndex(0);
-        graphicSubTabs->setCurrentIndex(7);
-        audioSubTabs->setCurrentIndex(2);
+        graphicSubTabs->setCurrentIndex(0);
+        audioSubTabs->setCurrentIndex(0);
         fontSubTabs->setCurrentIndex(0);
 
 
