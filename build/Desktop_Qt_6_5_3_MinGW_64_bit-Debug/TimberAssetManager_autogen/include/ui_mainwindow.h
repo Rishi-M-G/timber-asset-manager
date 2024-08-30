@@ -74,6 +74,12 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
         MainWindow->resize(874, 436);
+        MainWindow->setStyleSheet(QString::fromUtf8("QMainWindow {\n"
+"    background-color: #2E3440; /* Dark background */\n"
+"    color: #ECEFF4; /* Light text color */\n"
+"    font-family: \"Segoe UI\", Arial, sans-serif;\n"
+"    font-size: 12pt;\n"
+"}"));
         centrawidget = new QWidget(MainWindow);
         centrawidget->setObjectName("centrawidget");
         horizontalLayout_5 = new QHBoxLayout(centrawidget);
@@ -88,52 +94,52 @@ public:
         sizePolicy.setHeightForWidth(contentBox->sizePolicy().hasHeightForWidth());
         contentBox->setSizePolicy(sizePolicy);
         contentBox->setStyleSheet(QString::fromUtf8("QWidget {\n"
-"    border: 1px solid #000000;  /* Black border */\n"
-"    background-color: #E4F6F8;  /* Pale grey background */\n"
-"	border-radius: 5px;\n"
+"    border: 1px solid #888888;  /* Softer grey border */\n"
+"    background-color: #F0F4F6;  /* Slightly lighter background */\n"
+"    border-radius: 8px;  /* Increased border radius for smoother corners */\n"
 "}\n"
+"\n"
 "QWidget:hover {\n"
-"    border: 2px solid #a2a2d0;  /* Changes border color on hover */\n"
-"}"));
+"    border: 2px solid #6A87D4;  /* Refined hover border color */\n"
+"}\n"
+""));
         MaintabWidget = new QTabWidget(contentBox);
         MaintabWidget->setObjectName("MaintabWidget");
         MaintabWidget->setGeometry(QRect(10, 10, 541, 241));
-        MaintabWidget->setStyleSheet(QString::fromUtf8("QTabWidget::tab-bar {\n"
-"}\n"
-"\n"
-"QTabBar::tab {\n"
-"	color: #333333; /* Dark gray text color */\n"
+        MaintabWidget->setStyleSheet(QString::fromUtf8("QTabBar::tab {\n"
+"    color: #2C2C2C;  /* Darker gray text color */\n"
 "    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                 stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
-"                                 stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
-"    border: 1px solid #C4C4C3;\n"
-"    border-bottom-color: #C2C7CB; /* same as the pane color */\n"
-"    border-top-left-radius: 4px;\n"
-"    border-top-right-radius: 4px;\n"
-"    min-width: 8ex;\n"
-"    padding: 2px;\n"
+"                                 stop: 0 #F5F5F5, stop: 0.4 #EEEEEE,\n"
+"                                 stop: 0.5 #E0E0E0, stop: 1.0 #D6D6D6);  /* Slightly brighter gradient */\n"
+"    border: 1px solid #B3B3B3;\n"
+"    border-bottom-color: #D6D6D6;  /* Matches the pane color */\n"
+"    border-top-left-radius: 6px;\n"
+"    border-top-right-radius: 6px;\n"
+"    min-width: 10ex;  /* Increases tab width slightly */\n"
+"    padding: 4px 8px;  /* Adds more padding for a spacious look */\n"
 "}\n"
 "\n"
 "QTabBar::tab:selected, QTabBar::tab:hover {\n"
 "    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
-"                                 stop: 0 #fafafa, stop: 0.4 #f4f4f4,\n"
-"                                 stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);\n"
+"                                 stop: 0 #FFFFFF, stop: 0.4 #F7F7F7,\n"
+"                                 stop: 0.5 #EDEDED, stop: 1.0 #FFFFFF);  /* A lighter gradient for selected and hover state */\n"
 "}\n"
 "\n"
 "QTabBar::tab:selected {\n"
-"    border-color: #9B9B9B;\n"
-"    border-bottom-color: #C2C7CB; /* same as pane color */\n"
+"    border-color: #8A8A8A;\n"
+""
+                        "    border-bottom-color: #D6D6D6;  /* Matches the pane color */\n"
 "}\n"
 "\n"
 "QTabBar::tab:!selected {\n"
-"    margin-top: 2px; /* make non-selecte"
-                        "d tabs look smaller */\n"
+"    margin-top: 3px;  /* Adds more spacing for non-selected tabs */\n"
 "}\n"
 "\n"
-"\n"
 "QTabWidget::pane {\n"
-"    border: 0.5px #C4C4C3;\n"
-"    background-color: #F8F8F8; /* Sets background color of the content area */\n"
+"    border: 1px solid #B3B3B3;\n"
+"    background-color: #FFFFFF;  /* A clean white background for the content area */\n"
+"    border-radius: 4px;  /* Adds rounded corners to the content area */\n"
+"    margin-top: -1px;  /* Ensures seamless connection between tabs and pane */\n"
 "}\n"
 ""));
         graphicsTab = new QWidget();
@@ -245,9 +251,59 @@ public:
         btnAddItem = new QPushButton(contentBox);
         btnAddItem->setObjectName("btnAddItem");
         btnAddItem->setGeometry(QRect(450, 310, 80, 24));
+        btnAddItem->setStyleSheet(QString::fromUtf8("QPushButton#btnAddItem {\n"
+"    background-color: #4CAF50;  /* Green background */\n"
+"    color: white;  /* White text */\n"
+"    border: none;\n"
+"    border-radius: 4px;\n"
+"    padding: 4px 10px;\n"
+"    font-family: \"Segoe UI\", sans-serif;\n"
+"    font-size: 10pt;\n"
+"    transition: background-color 0.3s ease;  /* Smooth transition for background color */\n"
+"}\n"
+"\n"
+"QPushButton#btnAddItem:hover {\n"
+"    background-color: #45A049;  /* Darker green on hover */\n"
+"}\n"
+"\n"
+"QPushButton#btnAddItem:pressed {\n"
+"    background-color: #3E8E41;  /* Even darker green when pressed */\n"
+"}\n"
+"\n"
+"QPushButton#btnAddItem:disabled {\n"
+"    background-color: #CCCCCC;  /* Light gray background when disabled */\n"
+"    color: #666666;  /* Darker gray text */\n"
+"}\n"
+""));
         addItemStatus = new QLabel(contentBox);
         addItemStatus->setObjectName("addItemStatus");
         addItemStatus->setGeometry(QRect(340, 310, 91, 21));
+        addItemStatus->setStyleSheet(QString::fromUtf8("QLabel#addItemStatus {\n"
+"    background-color: #F0F4F6;    /* Light blue background indicating information */\n"
+"    color: #1A73E8;               /* Google blue text color for readability */\n"
+"    border: none;\n"
+"    border-radius: 4px;           /* Slightly rounded corners */\n"
+"    padding: 4px 10px;            /* Adequate padding for text */\n"
+"    font-family: \"Segoe UI\", sans-serif;\n"
+"    font-size: 10pt;\n"
+"}\n"
+"\n"
+"QLabel#addItemStatus[status=\"success\"] {\n"
+"    background-color: #E6F4EA;\n"
+"    color: #34A853;\n"
+"    border: 1px solid #34A853;\n"
+"}\n"
+"\n"
+"QLabel#addItemStatus[status=\"error\"] {\n"
+"    background-color: #FDECEA;\n"
+"    color: #D93025;\n"
+"    border: 1px solid #D93025;\n"
+"}\n"
+"\n"
+"QLabel#addItemStatus:empty {\n"
+"    border: none;  /* Remove border when label is empty */\n"
+"    background-color: transparent;  /* Remove background color when empty */\n"
+"}"));
 
         horizontalLayout_4->addWidget(contentBox);
 
@@ -256,16 +312,33 @@ public:
         sizePolicy.setHeightForWidth(previewPane->sizePolicy().hasHeightForWidth());
         previewPane->setSizePolicy(sizePolicy);
         previewPane->setStyleSheet(QString::fromUtf8("QWidget {\n"
-"    border: 1px solid #000000;  /* Black border */\n"
-"    background-color: #E4F6F8;  /* Pale grey background */\n"
-"	border-radius: 5px;\n"
+"    border: 1px solid #333333;  /* Dark grey border for a more sophisticated look */\n"
+"    background-color: #F4F4F4;  /* Soft, neutral background color */\n"
+"    border-radius: 8px;  /* Slightly larger radius for a smoother appearance */\n"
+"    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);  /* Subtle shadow for depth */\n"
 "}\n"
+"\n"
 "QWidget:hover {\n"
-"    border: 2px solid red;  /* Changes border color on hover */\n"
-"}"));
+"    border: 1px solid #1E90FF;  /* Gentle blue border on hover */\n"
+"    background-color: #FFFFFF;  /* Pure white background on hover for contrast */\n"
+"}\n"
+""));
         imagePreview = new QGraphicsView(previewPane);
         imagePreview->setObjectName("imagePreview");
         imagePreview->setGeometry(QRect(10, 10, 256, 261));
+        imagePreview->setStyleSheet(QString::fromUtf8("QGraphicsView {\n"
+"    border: 2px solid #2E3A46;  /* Dark slate grey border for a modern look */\n"
+"    background-color: #F8F9FA;  /* Very light grey background */\n"
+"    border-radius: 10px;  /* Smooth, rounded corners */\n"
+"    padding: 5px;  /* Adds a slight padding inside the border */\n"
+"    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);  /* Subtle shadow for a professional depth */\n"
+"}\n"
+"\n"
+"QGraphicsView:hover {\n"
+"    border: 2px solid #1C6EA4;  /* Calming blue border on hover */\n"
+"    background-color: #FFFFFF;  /* Crisp white background on hover */\n"
+"}\n"
+""));
 
         horizontalLayout_4->addWidget(previewPane);
 

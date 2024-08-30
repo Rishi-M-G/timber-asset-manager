@@ -9,6 +9,9 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QDirIterator>
+#include <QListWidget>
+#include <QPushButton>
+
 //**********
 
 QT_BEGIN_NAMESPACE
@@ -29,9 +32,16 @@ private:
     Ui::MainWindow *ui;
     // My Additions
     QGraphicsScene* scene;
+    // QMediaPlayer* mediaPlayer;
+    // QPushButton* playButton;
+
     void updateImagePreview(const QString& imagePath);
     void populateItemList();
     void handleAddItem();
+    void handlePlayButtonClicked();
+    void initializeUIComponents();
+    void setUpListWidgetConnections();
+    void setUPAddItemButton();
 
     //************
 };

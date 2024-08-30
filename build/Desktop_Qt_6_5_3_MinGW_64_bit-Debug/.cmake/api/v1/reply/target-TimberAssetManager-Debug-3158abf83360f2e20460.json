@@ -51,7 +51,7 @@
 			{
 				"command" : 3,
 				"file" : 1,
-				"line" : 26,
+				"line" : 28,
 				"parent" : 0
 			},
 			{
@@ -75,13 +75,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 69,
+				"line" : 71,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 52,
+				"line" : 54,
 				"parent" : 0
 			},
 			{
@@ -371,11 +371,11 @@
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 0,
-			"id" : "TimberAssetManager_autogen::@6890427a1f51a3e7e1df"
+			"id" : "TimberAssetManager_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		},
 		{
-			"id" : "TimberAssetManager_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
+			"backtrace" : 0,
+			"id" : "TimberAssetManager_autogen::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "TimberAssetManager::@6890427a1f51a3e7e1df",
