@@ -2,7 +2,9 @@
 #include "./ui_mainwindow.h"
 #include <QtMultimedia/QMediaPlayer>
 
-
+/*
+ * Constructor
+*/
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -23,25 +25,21 @@ MainWindow::MainWindow(QWidget *parent)
 
     loadCurrentAssetsFromConfig();
     highlightCurrentAssets();
-
-
-
-    //*************
 }
-
-// My Additions
-
+/*
+ * Initializing UI Components for Image Preview Functionality
+*/
 void MainWindow::initializeUIComponents(){
-    /*
-     * For Image Preview
-    */
+
     // Connection for Image Preview
     scene = new QGraphicsScene(this);
     ui->imagePreview->setScene(scene);
     ui->imagePreview->setAlignment(Qt::AlignCenter);
 
 }
-
+/*
+ * Connecting UI Components with respective file paths for Asset List View
+*/
 void MainWindow::setUpListWidgetConnections(){
     QList<QListWidget*> listWidgets = {ui->backgroundList,ui->playerList,ui->cloudList,
                                         ui->beeList,ui->treeList,ui->branchList,
@@ -89,13 +87,9 @@ void MainWindow::setUpListWidgetConnections(){
      * Iteration for Images and Audio
     */
 }
-
-
-
-
-
-// Code to Populate List inside graphics tab
-
+/*
+ * Populating Assets in the Asset List View
+*/
 void MainWindow::populateItemList() {
     // Define the paths and corresponding QListWidget names
     QList<QPair<QString, QString>> folderPaths = {
@@ -139,6 +133,9 @@ void MainWindow::populateItemList() {
     }
 }
 
+/*
+ * Displaying Preview Image in the Image Preview UI space
+*/
 void MainWindow::updateImagePreview(const QString &imagePath){
     QString fileExtension = QFileInfo(imagePath).suffix().toLower();
     scene->clear(); // Clear Previous items
@@ -177,6 +174,9 @@ void MainWindow::updateImagePreview(const QString &imagePath){
 
 }
 
+/*
+ * Handling Adding asset
+*/
 void MainWindow::handleAddItem(){
     // Open file dialog to select an asset
     QString selectedFilter;
@@ -248,14 +248,15 @@ void MainWindow::handleAddItem(){
     }
 }
 
+/*
+ * Push Button : Add Item
+*/
 void MainWindow::setUPAddItemButton(){
-    /*
-     * Adding an item
-    */
-    // Adding an item
     connect(ui->btnAddItem, &QPushButton::clicked, this,&MainWindow::handleAddItem);
 }
-
+/*
+ * Push Button : Play Audio
+*/
 // void MainWindow::handlePlayButtonClicked(){
 //     if (mediaPlayer->playbackState() == QMediaPlayer::PlayingState) {
 //         mediaPlayer->stop();
@@ -263,8 +264,6 @@ void MainWindow::setUPAddItemButton(){
 //         mediaPlayer->play();
 //     }
 // }
-// ***********
-
 /*
  * Parse data from assetConfig.json
 */
@@ -290,7 +289,9 @@ QSet<QString> MainWindow::loadCurrentAssetsFromConfig(){
     return currentAssets;
 }
 
-// Testing function for loadCurrentAssetsFromConfig
+/*
+ * Testing: loadCurrentAssetsFromConfig
+*/
 void MainWindow::testloadCurrentAssetsFromConfig(){
     QSet<QString> assets = loadCurrentAssetsFromConfig();
 
@@ -299,7 +300,9 @@ void MainWindow::testloadCurrentAssetsFromConfig(){
         qDebug()<<asset;
     }
 }
-
+/*
+ * Highlighting current assets in Timber using assetConfig.json file
+*/
 void MainWindow::highlightCurrentAssets(){
     // Load and extract data from the config file
     QSet<QString> currentAssets = loadCurrentAssetsFromConfig();
@@ -310,7 +313,7 @@ void MainWindow::highlightCurrentAssets(){
         QFileInfo fileInfo(fullPath);
         QString fileName = fileInfo.fileName();
         currentAssetNames.insert(fileName);
-        qDebug() << "Extracted filename:" << fileName;
+        //qDebug() << "Extracted filename:" << fileName;
     }
 
     // ListWidgets to Check
@@ -325,7 +328,7 @@ void MainWindow::highlightCurrentAssets(){
             QListWidgetItem* item = listWidget->item(i);
             QString assetName = item->text();
 
-            qDebug() << "Checking asset:" << assetName;
+            //qDebug() << "Checking asset:" << assetName;
 
             if(currentAssetNames.contains(assetName)){
                 // Highlight the current item
@@ -335,7 +338,9 @@ void MainWindow::highlightCurrentAssets(){
     }
 
 }
-
+/*
+ * Destructor
+*/
 MainWindow::~MainWindow()
 {
     delete ui;
