@@ -23,7 +23,10 @@ MainWindow::MainWindow(QWidget *parent)
     //Function Call: Adding an item to the existing assets
     setUPAddItemButton();
 
+    //Function Call: Load Assets from assetConfig.json
     loadCurrentAssetsFromConfig();
+
+    //Function Call: highlight current assets in timber
     highlightCurrentAssets();
 }
 /*
@@ -216,16 +219,48 @@ void MainWindow::handleAddItem(){
         case 7: // Grave Stone
             targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/rip";
             break;
-        // Will add other tabs later
+        default:
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics";
+            break;
         }
     }
+
     // Audio Tab
     else if (currentTabIndex == ui->MaintabWidget->indexOf(ui->audioTab)){
-        targetDirectory = "C:/Users/Admin/source/repos/Timber/Sound";
+        int subTabIndex = ui->audioSubTabs->currentIndex();
+        switch(subTabIndex){
+        case 0: //chop
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/Sound/chop";
+            break;
+        case 1: // death
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/Sound/death";
+            break;
+        case 2: // out of time
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/Sound/oot";
+            break;
+        default:
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/Sound";
+            break;
+        }
     }
+
     // Fonts Tab
     else if (currentTabIndex == ui->MaintabWidget->indexOf(ui->fontTab)){
-        targetDirectory = "C:/Users/Admin/source/repos/Timber/Fonts";
+        int subTabIndex = ui->fontSubTabs->currentIndex();
+        switch(subTabIndex){
+        case 0: //heads up display
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/Fonts/hud";
+            break;
+        case 1: // message
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/Fonts/score";
+            break;
+        case 2: // score
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/Fonts/message";
+            break;
+        default:
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/Fonts";
+            break;
+        }
     }
 
     // Constructing the target file path
