@@ -4,6 +4,10 @@ C:/Users/Admin/Documents/QtProjects/TimberAssetManager/mainwindow.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/QDir
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/QDirIterator
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/QFileInfoList
+ mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/QJsonDocument
+ mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/QJsonObject
+ mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/QSet
+ mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/QString
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/q20memory.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/q20type_traits.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qabstractitemmodel.h
@@ -22,6 +26,8 @@ C:/Users/Admin/Documents/QtProjects/TimberAssetManager/mainwindow.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qbytearraylist.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qbytearrayview.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qcalendar.h
+ mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qcborcommon.h
+ mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qcborvalue.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qchar.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qcompare.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qcompare_impl.h
@@ -56,6 +62,9 @@ C:/Users/Admin/Documents/QtProjects/TimberAssetManager/mainwindow.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qitemselectionmodel.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qiterable.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qiterator.h
+ mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qjsondocument.h
+ mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qjsonobject.h
+ mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qjsonvalue.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qline.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qlist.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qlocale.h
@@ -121,6 +130,7 @@ C:/Users/Admin/Documents/QtProjects/TimberAssetManager/mainwindow.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qtypes.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qurl.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qutf8stringview.h
+ mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/quuid.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qvariant.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qvarlengtharray.h
  mdp:C:/Qt/6.5.3/mingw_64/include/QtCore/qversiontagging.h

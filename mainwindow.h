@@ -11,6 +11,10 @@
 #include <QDirIterator>
 #include <QListWidget>
 #include <QPushButton>
+#include <QSet>
+#include <QString>
+#include <QJsonDocument>
+#include <QJsonObject>
 
 //**********
 
@@ -42,6 +46,9 @@ private:
     void initializeUIComponents();
     void setUpListWidgetConnections();
     void setUPAddItemButton();
+    QSet<QString> loadCurrentAssetsFromConfig();
+    void highlightCurrentAssets();
+    void testloadCurrentAssetsFromConfig();
 
     //************
 };

@@ -21,6 +21,11 @@ MainWindow::MainWindow(QWidget *parent)
     //Function Call: Adding an item to the existing assets
     setUPAddItemButton();
 
+    loadCurrentAssetsFromConfig();
+    highlightCurrentAssets();
+
+
+
     //*************
 }
 
@@ -260,6 +265,76 @@ void MainWindow::setUPAddItemButton(){
 // }
 // ***********
 
+/*
+ * Parse data from assetConfig.json
+*/
+
+QSet<QString> MainWindow::loadCurrentAssetsFromConfig(){
+    QFile configFile("C:/Users/Admin/source/repos/Timber/Timber/assetConfig.json");
+    if(!configFile.open(QIODevice::ReadOnly | QIODevice::Text)){
+        qDebug() << "Failed to open config file.";
+        return QSet<QString>();
+    }
+    QByteArray data = configFile.readAll();
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject jsonObj = doc.object();
+
+    QSet<QString> currentAssets;
+
+    QJsonObject graphicsObj = jsonObj["graphics"].toObject();
+    for (const QString &key : graphicsObj.keys()) {
+        currentAssets.insert(graphicsObj[key].toString());
+    }
+    //add other assets later
+
+    return currentAssets;
+}
+
+// Testing function for loadCurrentAssetsFromConfig
+void MainWindow::testloadCurrentAssetsFromConfig(){
+    QSet<QString> assets = loadCurrentAssetsFromConfig();
+
+    qDebug()<<"Loaded Assets:";
+    for(const QString &asset:assets){
+        qDebug()<<asset;
+    }
+}
+
+void MainWindow::highlightCurrentAssets(){
+    // Load and extract data from the config file
+    QSet<QString> currentAssets = loadCurrentAssetsFromConfig();
+
+    // Create a new set containing only the filenames
+    QSet<QString> currentAssetNames;
+    for (const QString &fullPath : currentAssets) {
+        QFileInfo fileInfo(fullPath);
+        QString fileName = fileInfo.fileName();
+        currentAssetNames.insert(fileName);
+        qDebug() << "Extracted filename:" << fileName;
+    }
+
+    // ListWidgets to Check
+    QList<QListWidget*> listWidgets = {ui->backgroundList, ui->playerList, ui->cloudList,
+                                        ui->beeList, ui->treeList, ui->branchList,
+                                        ui->logList, ui->ripList, ui->chopList,
+                                        ui->deathList, ui->ootList, ui->hudList,
+                                        ui->messageList, ui->scoreList};
+
+    for(QListWidget* listWidget : listWidgets){
+        for(int i=0;i<listWidget->count();++i){
+            QListWidgetItem* item = listWidget->item(i);
+            QString assetName = item->text();
+
+            qDebug() << "Checking asset:" << assetName;
+
+            if(currentAssetNames.contains(assetName)){
+                // Highlight the current item
+                item->setBackground(Qt::gray);
+            }
+        }
+    }
+
+}
 
 MainWindow::~MainWindow()
 {
