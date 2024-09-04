@@ -28,6 +28,15 @@ MainWindow::MainWindow(QWidget *parent)
 
     //Function Call: highlight current assets in timber
     highlightCurrentAssets();
+
+    //Function Call: Removing an item to the existing assets
+    setUPRemoveItemButton();
+
+    //Function Call: Switching remove button status
+    setUPRemoveItemButtonStatus();
+
+    updateRemoveButtonState();
+
 }
 /*
  * Initializing UI Components for Image Preview Functionality
@@ -251,10 +260,10 @@ void MainWindow::handleAddItem(){
         case 0: //heads up display
             targetDirectory = "C:/Users/Admin/source/repos/Timber/Fonts/hud";
             break;
-        case 1: // message
+        case 1: // score
             targetDirectory = "C:/Users/Admin/source/repos/Timber/Fonts/score";
             break;
-        case 2: // score
+        case 2: // message
             targetDirectory = "C:/Users/Admin/source/repos/Timber/Fonts/message";
             break;
         default:
@@ -288,6 +297,31 @@ void MainWindow::handleAddItem(){
 */
 void MainWindow::setUPAddItemButton(){
     connect(ui->btnAddItem, &QPushButton::clicked, this,&MainWindow::handleAddItem);
+}
+/*
+ * Push Button : Remove Item
+*/
+void MainWindow::setUPRemoveItemButton(){
+    connect(ui->btnRemoveItem,&QPushButton::clicked,this,&MainWindow::handleRemoveItem);
+}
+/*
+ * Remove Item Button status
+*/
+void MainWindow::setUPRemoveItemButtonStatus(){
+    connect(ui->backgroundList, &QListWidget::itemSelectionChanged, this, &MainWindow::updateRemoveButtonState);
+    connect(ui->playerList, &QListWidget::itemSelectionChanged, this, &MainWindow::updateRemoveButtonState);
+    connect(ui->cloudList, &QListWidget::itemSelectionChanged, this, &MainWindow::updateRemoveButtonState);
+    connect(ui->beeList, &QListWidget::itemSelectionChanged, this, &MainWindow::updateRemoveButtonState);
+    connect(ui->treeList, &QListWidget::itemSelectionChanged, this, &MainWindow::updateRemoveButtonState);
+    connect(ui->branchList, &QListWidget::itemSelectionChanged, this, &MainWindow::updateRemoveButtonState);
+    connect(ui->logList, &QListWidget::itemSelectionChanged, this, &MainWindow::updateRemoveButtonState);
+    connect(ui->ripList, &QListWidget::itemSelectionChanged, this, &MainWindow::updateRemoveButtonState);
+    connect(ui->chopList, &QListWidget::itemSelectionChanged, this, &MainWindow::updateRemoveButtonState);
+    connect(ui->deathList, &QListWidget::itemSelectionChanged, this, &MainWindow::updateRemoveButtonState);
+    connect(ui->ootList, &QListWidget::itemSelectionChanged, this, &MainWindow::updateRemoveButtonState);
+    connect(ui->hudList, &QListWidget::itemSelectionChanged, this, &MainWindow::updateRemoveButtonState);
+    connect(ui->messageList, &QListWidget::itemSelectionChanged, this, &MainWindow::updateRemoveButtonState);
+    connect(ui->scoreList, &QListWidget::itemSelectionChanged, this, &MainWindow::updateRemoveButtonState);
 }
 /*
  * Push Button : Play Audio
@@ -373,6 +407,150 @@ void MainWindow::highlightCurrentAssets(){
     }
 
 }
+/*
+ * Removing an asset from Asset List and from the respective Target Folder
+*/
+void MainWindow::handleRemoveItem(){
+    QListWidget* activeListWidget = nullptr;
+    QString targetDirectory;
+
+    // Determine the currenlty active tab and subtab
+    int currentTabIndex = ui->MaintabWidget->currentIndex();
+
+    if(currentTabIndex == ui->MaintabWidget->indexOf(ui->graphicsTab)){
+        int subTabIndex = ui->graphicSubTabs->currentIndex();
+        switch(subTabIndex){
+        case 0: // Background
+            activeListWidget = ui->backgroundList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/background";
+            break;
+        case 1: // Player
+            activeListWidget = ui->playerList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/player";
+            break;
+        case 2: // Cloud
+            activeListWidget = ui->cloudList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/cloud";
+            break;
+        case 3: // Bee
+            activeListWidget = ui->beeList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/bee";
+            break;
+        case 4: // Tree
+            activeListWidget = ui->treeList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/tree";
+            break;
+        case 5: // Branch
+            activeListWidget = ui->branchList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/branch";
+            break;
+        case 6: //Log
+            activeListWidget = ui->logList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/log";
+            break;
+        case 7: // Grave Stone
+            activeListWidget = ui->ripList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/rip";
+            break;
+        default:
+            return;
+        }
+    }else if(currentTabIndex == ui->MaintabWidget->indexOf(ui->audioTab)){
+        int subTabIndex = ui->audioSubTabs->currentIndex();
+        switch(subTabIndex){
+        case 0: //chop
+            activeListWidget = ui->chopList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/Sound/chop";
+            break;
+        case 1: // death
+            activeListWidget = ui->deathList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/Sound/death";
+            break;
+        case 2: // out of time
+            activeListWidget = ui->ootList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/Sound/oot";
+            break;
+        default:
+            return;
+        }
+    }else if(currentTabIndex == ui->MaintabWidget->indexOf(ui->fontTab)){
+        int subTabIndex = ui->fontSubTabs->currentIndex();
+        switch(subTabIndex){
+        case 0: //heads up display
+            activeListWidget = ui->hudList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/Fonts/hud";
+            break;
+        case 1: // score
+            activeListWidget = ui->messageList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/Fonts/score";
+            break;
+        case 2: // message
+            activeListWidget = ui->scoreList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/Fonts/message";
+            break;
+        default:
+            return;
+        }
+    }
+
+    if(!activeListWidget)
+        return;
+
+    // Get selected item
+    QListWidgetItem* selectedItem = activeListWidget->currentItem();
+    if(!selectedItem)
+        return;
+
+    QString assetName = selectedItem->text();
+    QString fullPath = targetDirectory+"/"+assetName;
+
+    // Check if this asset is currently in use
+    QSet<QString> currentAssets = loadCurrentAssetsFromConfig();
+
+    // Create a new set containing only the filenames
+    QSet<QString> currentAssetNames;
+    for (const QString &fullPath : currentAssets) {
+        QFileInfo fileInfo(fullPath);
+        QString fileName = fileInfo.fileName();
+        currentAssetNames.insert(fileName);
+    }
+    if(currentAssetNames.contains(assetName)){
+        QMessageBox::warning(this,"Cannot Remove","This asset is currently in use, and cannot be removed.");
+        return;
+    }
+
+    // If asset is not currently in use, Remove File from the Directory
+    if(QFile::remove(fullPath)){
+        delete selectedItem;
+        qDebug()<<"Removed Asset:" <<fullPath;
+    }else{
+        QMessageBox::warning(this,"Error","Failed to remove this asset.");
+    }
+}
+
+/*
+ * Switching Remove Item Button's Status
+*/
+void MainWindow::updateRemoveButtonState(){
+    bool hasSelection = false;
+
+    // Check all list widgets for a selected item
+    QList<QListWidget*> listWidgets = {ui->backgroundList, ui->playerList, ui->cloudList,
+                                        ui->beeList, ui->treeList, ui->branchList,
+                                        ui->logList, ui->ripList, ui->chopList,
+                                        ui->deathList, ui->ootList, ui->hudList,
+                                        ui->messageList, ui->scoreList};
+
+    for(QListWidget* listWidget : listWidgets){
+        if(listWidget->selectedItems().count() > 0){
+            hasSelection = true;
+            break;
+        }
+    }
+    ui->btnRemoveItem->setEnabled(hasSelection);
+    ui->btnRemoveItem->setVisible(hasSelection);
+}
+
 /*
  * Destructor
 */

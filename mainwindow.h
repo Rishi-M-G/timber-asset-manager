@@ -49,6 +49,10 @@ private:
     QSet<QString> loadCurrentAssetsFromConfig();
     void highlightCurrentAssets();
     void testloadCurrentAssetsFromConfig();
+    void handleRemoveItem();
+    void updateRemoveButtonState();
+    void setUPRemoveItemButton();
+    void setUPRemoveItemButtonStatus();
 
     //************
 };

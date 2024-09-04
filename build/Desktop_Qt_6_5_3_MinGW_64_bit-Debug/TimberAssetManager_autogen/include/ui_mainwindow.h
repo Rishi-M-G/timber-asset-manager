@@ -66,6 +66,7 @@ public:
     QListWidget *messageList;
     QPushButton *btnAddItem;
     QLabel *addItemStatus;
+    QPushButton *btnRemoveItem;
     QWidget *previewPane;
     QGraphicsView *imagePreview;
 
@@ -304,6 +305,33 @@ public:
 "    border: none;  /* Remove border when label is empty */\n"
 "    background-color: transparent;  /* Remove background color when empty */\n"
 "}"));
+        btnRemoveItem = new QPushButton(contentBox);
+        btnRemoveItem->setObjectName("btnRemoveItem");
+        btnRemoveItem->setGeometry(QRect(450, 340, 80, 24));
+        btnRemoveItem->setStyleSheet(QString::fromUtf8("QPushButton#btnRemoveItem {\n"
+"    background-color: #F44336;  /* Red background */\n"
+"    color: white;  /* White text */\n"
+"    border: none;\n"
+"    border-radius: 4px;\n"
+"    padding: 3px 8px;\n"
+"    font-family: \"Segoe UI\", sans-serif;\n"
+"    font-size: 8pt;\n"
+"    transition: background-color 0.3s ease;  /* Smooth transition for background color */\n"
+"}\n"
+"\n"
+"QPushButton#btnRemoveItem:hover {\n"
+"    background-color: #E53935;  /* Darker red on hover */\n"
+"}\n"
+"\n"
+"QPushButton#btnRemoveItem:pressed {\n"
+"    background-color: #D32F2F;  /* Even darker red when pressed */\n"
+"}\n"
+"\n"
+"QPushButton#btnRemoveItem:disabled {\n"
+"    background-color: #CCCCCC;  /* Light gray background when disabled */\n"
+"    color: #666666;  /* Darker gray text */\n"
+"}\n"
+""));
 
         horizontalLayout_4->addWidget(contentBox);
 
@@ -353,8 +381,8 @@ public:
 
         MaintabWidget->setCurrentIndex(0);
         graphicSubTabs->setCurrentIndex(0);
-        audioSubTabs->setCurrentIndex(0);
-        fontSubTabs->setCurrentIndex(0);
+        audioSubTabs->setCurrentIndex(2);
+        fontSubTabs->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -382,6 +410,7 @@ public:
         MaintabWidget->setTabText(MaintabWidget->indexOf(fontTab), QCoreApplication::translate("MainWindow", "Font", nullptr));
         btnAddItem->setText(QCoreApplication::translate("MainWindow", "Add Item", nullptr));
         addItemStatus->setText(QString());
+        btnRemoveItem->setText(QCoreApplication::translate("MainWindow", "Remove Item", nullptr));
     } // retranslateUi
 
 };
