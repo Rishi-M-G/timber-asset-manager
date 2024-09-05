@@ -53,6 +53,7 @@ private:
     void updateRemoveButtonState();
     void setUPRemoveItemButton();
     void setUPRemoveItemButtonStatus();
+    void updateSetCurrentButtonState();
 
     //************
 };

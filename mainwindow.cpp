@@ -552,6 +552,120 @@ void MainWindow::updateRemoveButtonState(){
 }
 
 /*
+ * Switching Set As Current Item Button's Status
+*/
+void MainWindow::updateSetCurrentButtonState(){
+    bool showSetAsCurrentButton = false;
+
+    QListWidget* activeListWidget = nullptr;
+    QString targetDirectory;
+
+    // Determining the currently active tab and subtab
+    int currentTabIndex = ui->MaintabWidget->currentIndex();
+
+    if(currentTabIndex == ui->MaintabWidget->indexOf(ui->graphicsTab)){
+        int subTabIndex = ui->graphicSubTabs->currentIndex();
+        switch(subTabIndex){
+        case 0: // Background
+            activeListWidget = ui->backgroundList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/background";
+            break;
+        case 1: // Player
+            activeListWidget = ui->playerList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/player";
+            break;
+        case 2: // Cloud
+            activeListWidget = ui->cloudList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/cloud";
+            break;
+        case 3: // Bee
+            activeListWidget = ui->beeList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/bee";
+            break;
+        case 4: // Tree
+            activeListWidget = ui->treeList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/tree";
+            break;
+        case 5: // Branch
+            activeListWidget = ui->branchList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/branch";
+            break;
+        case 6: //Log
+            activeListWidget = ui->logList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/log";
+            break;
+        case 7: // Grave Stone
+            activeListWidget = ui->ripList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/rip";
+            break;
+        default:
+            return;
+        }
+    }else if(currentTabIndex == ui->MaintabWidget->indexOf(ui->audioTab)){
+        int subTabIndex = ui->audioSubTabs->currentIndex();
+        switch(subTabIndex){
+        case 0: //chop
+            activeListWidget = ui->chopList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/Sound/chop";
+            break;
+        case 1: // death
+            activeListWidget = ui->deathList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/Sound/death";
+            break;
+        case 2: // out of time
+            activeListWidget = ui->ootList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/Sound/oot";
+            break;
+        default:
+            return;
+        }
+    }else if(currentTabIndex == ui->MaintabWidget->indexOf(ui->fontTab)){
+        int subTabIndex = ui->fontSubTabs->currentIndex();
+        switch(subTabIndex){
+        case 0: //heads up display
+            activeListWidget = ui->hudList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/Fonts/hud";
+            break;
+        case 1: // score
+            activeListWidget = ui->messageList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/Fonts/score";
+            break;
+        case 2: // message
+            activeListWidget = ui->scoreList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/Fonts/message";
+            break;
+        default:
+            return;
+        }
+    }
+
+    if(!activeListWidget){
+        return;
+    }
+
+    // Get Selected item
+    QListWidgetItem* selectedItem = activeListWidget->currentItem();
+    if(!selectedItem)
+        return;
+
+    QString selectedAsset = selectedItem->text();
+
+    // Check if this is already the current asset in the config
+    QSet<QString> currentAssets = loadCurrentAssetsFromConfig();
+
+    // Create a new set containing only the filenames of current assets
+    QSet<QString> currentAssetNames;
+    for (const QString &fullPath : currentAssets) {
+        QFileInfo fileInfo(fullPath);
+        QString fileName = fileInfo.fileName();
+        currentAssetNames.insert(fileName);
+    }
+
+    //
+}
+
+
+/*
  * Destructor
 */
 MainWindow::~MainWindow()
