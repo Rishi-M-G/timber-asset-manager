@@ -67,6 +67,7 @@ public:
     QPushButton *btnAddItem;
     QLabel *addItemStatus;
     QPushButton *btnRemoveItem;
+    QPushButton *btnSetAsCurrent;
     QWidget *previewPane;
     QGraphicsView *imagePreview;
 
@@ -332,6 +333,9 @@ public:
 "    color: #666666;  /* Darker gray text */\n"
 "}\n"
 ""));
+        btnSetAsCurrent = new QPushButton(contentBox);
+        btnSetAsCurrent->setObjectName("btnSetAsCurrent");
+        btnSetAsCurrent->setGeometry(QRect(320, 310, 111, 24));
 
         horizontalLayout_4->addWidget(contentBox);
 
@@ -411,6 +415,7 @@ public:
         btnAddItem->setText(QCoreApplication::translate("MainWindow", "Add Item", nullptr));
         addItemStatus->setText(QString());
         btnRemoveItem->setText(QCoreApplication::translate("MainWindow", "Remove Item", nullptr));
+        btnSetAsCurrent->setText(QCoreApplication::translate("MainWindow", "Set As Current", nullptr));
     } // retranslateUi
 
 };

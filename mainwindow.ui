@@ -484,6 +484,19 @@ QPushButton#btnRemoveItem:disabled {
           <string>Remove Item</string>
          </property>
         </widget>
+        <widget class="QPushButton" name="btnSetAsCurrent">
+         <property name="geometry">
+          <rect>
+           <x>320</x>
+           <y>310</y>
+           <width>111</width>
+           <height>24</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Set As Current</string>
+         </property>
+        </widget>
        </widget>
       </item>
       <item>
