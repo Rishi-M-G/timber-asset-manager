@@ -54,6 +54,8 @@ private:
     void setUPRemoveItemButton();
     void setUPRemoveItemButtonStatus();
     void updateSetCurrentButtonState();
+    void setCurrentAsset();
+    void setUPSetAsCurrentButton();
 
     //************
 };

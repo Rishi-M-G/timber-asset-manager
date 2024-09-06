@@ -558,7 +558,6 @@ void MainWindow::updateSetCurrentButtonState(){
     bool showSetAsCurrentButton = false;
 
     QListWidget* activeListWidget = nullptr;
-    QString targetDirectory;
 
     // Determining the currently active tab and subtab
     int currentTabIndex = ui->MaintabWidget->currentIndex();
@@ -568,35 +567,27 @@ void MainWindow::updateSetCurrentButtonState(){
         switch(subTabIndex){
         case 0: // Background
             activeListWidget = ui->backgroundList;
-            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/background";
             break;
         case 1: // Player
             activeListWidget = ui->playerList;
-            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/player";
             break;
         case 2: // Cloud
             activeListWidget = ui->cloudList;
-            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/cloud";
             break;
         case 3: // Bee
             activeListWidget = ui->beeList;
-            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/bee";
             break;
         case 4: // Tree
             activeListWidget = ui->treeList;
-            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/tree";
             break;
         case 5: // Branch
             activeListWidget = ui->branchList;
-            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/branch";
             break;
         case 6: //Log
             activeListWidget = ui->logList;
-            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/log";
             break;
         case 7: // Grave Stone
             activeListWidget = ui->ripList;
-            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/rip";
             break;
         default:
             return;
@@ -606,15 +597,12 @@ void MainWindow::updateSetCurrentButtonState(){
         switch(subTabIndex){
         case 0: //chop
             activeListWidget = ui->chopList;
-            targetDirectory = "C:/Users/Admin/source/repos/Timber/Sound/chop";
             break;
         case 1: // death
             activeListWidget = ui->deathList;
-            targetDirectory = "C:/Users/Admin/source/repos/Timber/Sound/death";
             break;
         case 2: // out of time
             activeListWidget = ui->ootList;
-            targetDirectory = "C:/Users/Admin/source/repos/Timber/Sound/oot";
             break;
         default:
             return;
@@ -624,15 +612,12 @@ void MainWindow::updateSetCurrentButtonState(){
         switch(subTabIndex){
         case 0: //heads up display
             activeListWidget = ui->hudList;
-            targetDirectory = "C:/Users/Admin/source/repos/Timber/Fonts/hud";
             break;
         case 1: // score
             activeListWidget = ui->messageList;
-            targetDirectory = "C:/Users/Admin/source/repos/Timber/Fonts/score";
             break;
         case 2: // message
             activeListWidget = ui->scoreList;
-            targetDirectory = "C:/Users/Admin/source/repos/Timber/Fonts/message";
             break;
         default:
             return;
@@ -640,13 +625,16 @@ void MainWindow::updateSetCurrentButtonState(){
     }
 
     if(!activeListWidget){
+        ui->btnSetAsCurrent->setVisible(false);
         return;
     }
 
     // Get Selected item
     QListWidgetItem* selectedItem = activeListWidget->currentItem();
-    if(!selectedItem)
+    if(!selectedItem){
+        ui->btnSetAsCurrent->setVisible(false);
         return;
+    }
 
     QString selectedAsset = selectedItem->text();
 
@@ -661,7 +649,164 @@ void MainWindow::updateSetCurrentButtonState(){
         currentAssetNames.insert(fileName);
     }
 
-    //
+    if(!currentAssetNames.contains(selectedAsset)){
+        showSetAsCurrentButton = true;
+    }
+    ui->btnSetAsCurrent->setVisible(showSetAsCurrentButton);
+}
+
+/*
+ * Update Config File: Setting the Selected Asset
+*/
+void MainWindow::setCurrentAsset(){
+    QListWidget* activeListWidget = nullptr;
+    QString targetDirectory;
+    QString assetType;
+    QString assetCategory;
+
+    // Determining the currently active tab and subtab
+    int currentTabIndex = ui->MaintabWidget->currentIndex();
+
+    if(currentTabIndex == ui->MaintabWidget->indexOf(ui->graphicsTab)){
+        // Graphics Tab
+        assetCategory = "graphics";
+        int subTabIndex = ui->graphicSubTabs->currentIndex();
+        switch(subTabIndex){
+        case 0: // Background
+            activeListWidget = ui->backgroundList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/background";
+            assetType="background";
+            break;
+        case 1: // Player
+            activeListWidget = ui->playerList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/player";
+            assetType="player";
+            break;
+        case 2: // Cloud
+            activeListWidget = ui->cloudList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/cloud";
+            assetType="cloud";
+            break;
+        case 3: // Bee
+            activeListWidget = ui->beeList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/bee";
+            assetType="bee";
+            break;
+        case 4: // Tree
+            activeListWidget = ui->treeList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/tree";
+            assetType="tree";
+            break;
+        case 5: // Branch
+            activeListWidget = ui->branchList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/branch";
+            assetType="branch";
+            break;
+        case 6: //Log
+            activeListWidget = ui->logList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/log";
+            assetType="log";
+            break;
+        case 7: // Grave Stone
+            activeListWidget = ui->ripList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/graphics/rip";
+            assetType="rip";
+            break;
+        default:
+            return;
+        }
+    }else if(currentTabIndex == ui->MaintabWidget->indexOf(ui->audioTab)){
+        // Audio Tab
+        assetCategory = "audio";
+        int subTabIndex = ui->audioSubTabs->currentIndex();
+        switch(subTabIndex){
+        case 0: //chop
+            activeListWidget = ui->chopList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/Sound/chop";
+            assetType="chop";
+            break;
+        case 1: // death
+            activeListWidget = ui->deathList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/Sound/death";
+            assetType="death";
+            break;
+        case 2: // out of time
+            activeListWidget = ui->ootList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/Sound/oot";
+            assetType="oot";
+            break;
+        default:
+            return;
+        }
+    }else if(currentTabIndex == ui->MaintabWidget->indexOf(ui->fontTab)){
+        // Fonts
+        assetCategory = "fonts";
+        int subTabIndex = ui->fontSubTabs->currentIndex();
+        switch(subTabIndex){
+        case 0: //heads up display
+            activeListWidget = ui->hudList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/Fonts/hud";
+            assetType="hud";
+            break;
+        case 1: // score
+            activeListWidget = ui->messageList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/Fonts/score";
+            assetType="score";
+            break;
+        case 2: // message
+            activeListWidget = ui->scoreList;
+            targetDirectory = "C:/Users/Admin/source/repos/Timber/Fonts/message";
+            assetType="message";
+            break;
+        default:
+            return;
+        }
+    }
+
+    if(!activeListWidget)
+        return;
+
+    // Get Selected Item
+    QListWidgetItem* selectedItem = activeListWidget->currentItem();
+
+    if(!selectedItem)
+        return;
+
+    QString selectedAsset = selectedItem->text();
+    QString fullPath = targetDirectory + "/" + selectedAsset;
+
+    // Open the config file for writing
+    QFile configFile("C:/Users/Admin/source/repos/Timber/Timber/assetConfigCopy.json");
+    if(!configFile.open(QIODevice::ReadWrite | QIODevice::Text)){
+        qWarning()<<"Failed to open config file for reading and writing.";
+        return;
+    }
+
+    // Read the current config into a JSON document
+    QByteArray data = configFile.readAll();
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonObject jsonObj = doc.object();
+
+    //Update the relevant asset category and asset type
+    QJsonObject categoryObj = jsonObj[assetCategory].toObject();
+    categoryObj[assetType] = fullPath;
+    jsonObj[assetCategory] = categoryObj;
+
+    // Write back the updated JSON to the file
+    doc.setObject(jsonObj);
+    configFile.resize(0); // Clear the file content
+    configFile.write(doc.toJson());
+    configFile.close();
+
+    // Provide Message to the user
+    QMessageBox::information(this, "Success","Asset has been set as the current" + assetType + "asset in" + assetCategory + ".");
+}
+
+/*
+ * Push Button : Add Item
+*/
+void MainWindow::setUPSetAsCurrentButton() {
+    connect(ui->btnSetAsCurrent, &QPushButton::clicked, this, &MainWindow::setCurrentAsset);
 }
 
 
