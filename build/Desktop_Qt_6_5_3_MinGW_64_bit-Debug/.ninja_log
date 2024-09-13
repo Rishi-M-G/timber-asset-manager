@@ -1,13 +1,13 @@
 # ninja log v6
-23	796	7479401573883778	C:/Users/Admin/Documents/QtProjects/TimberAssetManager/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/CMakeFiles/cmake.verify_globs	618067967983fbcf
-898	1441	7479401431727271	C:/Users/Admin/Documents/QtProjects/TimberAssetManager/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/TimberAssetManager_autogen/timestamp	775ba6af041b06a3
-898	1441	7479401431727271	TimberAssetManager_autogen/timestamp	775ba6af041b06a3
-898	1441	7479401431727271	TimberAssetManager_autogen/mocs_compilation.cpp	775ba6af041b06a3
-898	1441	7479401431727271	C:/Users/Admin/Documents/QtProjects/TimberAssetManager/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/TimberAssetManager_autogen/mocs_compilation.cpp	775ba6af041b06a3
+24	802	7479471467744814	C:/Users/Admin/Documents/QtProjects/TimberAssetManager/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/CMakeFiles/cmake.verify_globs	618067967983fbcf
+1093	1778	7479470456226570	C:/Users/Admin/Documents/QtProjects/TimberAssetManager/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/TimberAssetManager_autogen/timestamp	775ba6af041b06a3
+1093	1778	7479470456226570	TimberAssetManager_autogen/timestamp	775ba6af041b06a3
+1093	1778	7479470456226570	TimberAssetManager_autogen/mocs_compilation.cpp	775ba6af041b06a3
+1093	1778	7479470456226570	C:/Users/Admin/Documents/QtProjects/TimberAssetManager/build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/TimberAssetManager_autogen/mocs_compilation.cpp	775ba6af041b06a3
 552	640	7466603135131893	CMakeFiles/clean.additional	baedbe210acaa455
 3154	9277	7479396870080085	CMakeFiles/TimberAssetManager.dir/TimberAssetManager_autogen/mocs_compilation.cpp.obj	5b512c7ccf42dedf
-1443	6424	7479401437162304	CMakeFiles/TimberAssetManager.dir/mainwindow.cpp.obj	5288ebda2a56fa0e
+1780	7602	7479470463117371	CMakeFiles/TimberAssetManager.dir/mainwindow.cpp.obj	5288ebda2a56fa0e
 3189	9301	7479396870425549	CMakeFiles/TimberAssetManager.dir/main.cpp.obj	e5ff8da2b700c2ef
-6424	7404	7479401487080627	TimberAssetManager.exe	e57004596a687185
-658	3892	7479563663110026	build.ninja	1ae727f826c7f63
+7603	8873	7479470521343024	TimberAssetManager.exe	e57004596a687185
+658	3892	7479565247381368	build.ninja	1ae727f826c7f63
 640	681	7466603136009481	clean	577b940aee94fbd7

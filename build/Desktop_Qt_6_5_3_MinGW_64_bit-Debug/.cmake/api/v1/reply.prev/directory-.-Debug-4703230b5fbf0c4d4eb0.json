@@ -17,7 +17,11 @@
 			{
 				"command" : 0,
 				"file" : 0,
+<<<<<<<< HEAD:build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/.cmake/api/v1/reply.prev/directory-.-Debug-46f357ce152f98227045.json
 				"line" : 71,
+========
+				"line" : 72,
+>>>>>>>> c99cf5382c04e339ddf9c3add177e8064686e322:build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/.cmake/api/v1/reply/directory-.-Debug-4703230b5fbf0c4d4eb0.json
 				"parent" : 0
 			}
 		]

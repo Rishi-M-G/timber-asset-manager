@@ -7,7 +7,11 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
+<<<<<<<< HEAD:build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/.cmake/api/v1/reply/codemodel-v2-a07fbf41447d7471cb3c.json
 					"jsonFile" : "directory-.-Debug-46f357ce152f98227045.json",
+========
+					"jsonFile" : "directory-.-Debug-4703230b5fbf0c4d4eb0.json",
+>>>>>>>> c99cf5382c04e339ddf9c3add177e8064686e322:build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/.cmake/api/v1/reply/codemodel-v2-0390073e396747a19ed2.json
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +48,11 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "TimberAssetManager::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-TimberAssetManager-Debug-3158abf83360f2e20460.json",
+<<<<<<<< HEAD:build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/.cmake/api/v1/reply/codemodel-v2-a07fbf41447d7471cb3c.json
+					"jsonFile" : "target-TimberAssetManager-Debug-72de161b0ddbbb718f83.json",
+========
+					"jsonFile" : "target-TimberAssetManager-Debug-4b3b4ef59d3353eb2e79.json",
+>>>>>>>> c99cf5382c04e339ddf9c3add177e8064686e322:build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/.cmake/api/v1/reply/codemodel-v2-0390073e396747a19ed2.json
 					"name" : "TimberAssetManager",
 					"projectIndex" : 0
 				},

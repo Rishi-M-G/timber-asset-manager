@@ -75,13 +75,21 @@
 			{
 				"command" : 4,
 				"file" : 1,
+<<<<<<<< HEAD:build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/.cmake/api/v1/reply/target-TimberAssetManager-Debug-72de161b0ddbbb718f83.json
 				"line" : 71,
+========
+				"line" : 72,
+>>>>>>>> c99cf5382c04e339ddf9c3add177e8064686e322:build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/.cmake/api/v1/reply/target-TimberAssetManager-Debug-4b3b4ef59d3353eb2e79.json
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
+<<<<<<<< HEAD:build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/.cmake/api/v1/reply/target-TimberAssetManager-Debug-72de161b0ddbbb718f83.json
 				"line" : 54,
+========
+				"line" : 55,
+>>>>>>>> c99cf5382c04e339ddf9c3add177e8064686e322:build/Desktop_Qt_6_5_3_MinGW_64_bit-Debug/.cmake/api/v1/reply/target-TimberAssetManager-Debug-4b3b4ef59d3353eb2e79.json
 				"parent" : 0
 			},
 			{
@@ -490,7 +498,7 @@
 			"sourceIndexes" : 
 			[
 				3,
-				6
+				7
 			]
 		},
 		{
@@ -499,14 +507,15 @@
 			[
 				4,
 				5,
-				7
+				6,
+				8
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				8
+				9
 			]
 		}
 	],
@@ -544,6 +553,11 @@
 		{
 			"backtrace" : 4,
 			"path" : "TimberAssetManager_en_IN.ts",
+			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"path" : "readme.md",
 			"sourceGroupIndex" : 2
 		},
 		{
