@@ -399,6 +399,34 @@ public:
         btnRunGame = new QPushButton(previewPane);
         btnRunGame->setObjectName("btnRunGame");
         btnRunGame->setGeometry(QRect(10, 310, 261, 61));
+        btnRunGame->setStyleSheet(QString::fromUtf8("QPushButton#btnRunGame {\n"
+"    background-color: #4CAF50;  /* Green background for Run Game */\n"
+"    color: white;  /* White text */\n"
+"    border: none;\n"
+"    border-radius: 4px;\n"
+"    padding: 8px 16px;\n"
+"    font-family: \"Segoe UI\", sans-serif;\n"
+"    font-size: 10pt;\n"
+"    font-weight: bold;\n"
+"    transition: background-color 0.3s ease, transform 0.2s ease;  /* Smooth transition for hover and a subtle bounce effect */\n"
+"}\n"
+"\n"
+"QPushButton#btnRunGame:hover {\n"
+"    background-color: #45A049;  /* Darker green on hover */\n"
+"    transform: scale(1.05);  /* Slight zoom effect on hover */\n"
+"}\n"
+"\n"
+"QPushButton#btnRunGame:pressed {\n"
+"    background-color: #388E3C;  /* Even darker green when pressed */\n"
+"    transform: scale(0.98);  /* Slight shrink effect when pressed */\n"
+"}\n"
+"\n"
+"QPushButton#btnRunGame:disabled {\n"
+"    background-color: #CCCCCC;  /* Light gray background when disabled */\n"
+"    color: #666666;  /* Darker gray text */\n"
+"    cursor: not-allowed;\n"
+"}\n"
+""));
 
         horizontalLayout_4->addWidget(previewPane);
 
