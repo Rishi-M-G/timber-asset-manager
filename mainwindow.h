@@ -15,6 +15,8 @@
 #include <QString>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QProcess>
+
 
 //**********
 
@@ -56,6 +58,8 @@ private:
     void updateSetCurrentButtonState();
     void setCurrentAsset();
     void setUPSetAsCurrentButton();
+    void onRunGameButtonClicked();
+    void setUPRunGameItemButton();
 
     //************
 };

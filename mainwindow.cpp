@@ -41,6 +41,9 @@ MainWindow::MainWindow(QWidget *parent)
     //Function Call: Set As Current button status
     setUPSetAsCurrentButton();
 
+    //Function Call: Run Game Button
+    setUPRunGameItemButton();
+
 
 
 }
@@ -344,7 +347,7 @@ void MainWindow::setUPRemoveItemButtonStatus(){
 */
 
 QSet<QString> MainWindow::loadCurrentAssetsFromConfig(){
-    QFile configFile("C:/Users/Admin/source/repos/Timber/Timber/assetConfigCopy.json");
+    QFile configFile("C:/Users/Admin/source/repos/Timber/Debug/assetConfigCopy.json");
     if(!configFile.open(QIODevice::ReadOnly | QIODevice::Text)){
         qDebug() << "Failed to open config file.";
         return QSet<QString>();
@@ -782,7 +785,7 @@ void MainWindow::setCurrentAsset(){
     QString fullPath = targetDirectory + "/" + selectedAsset;
 
     // Open the config file for writing
-    QFile configFile("C:/Users/Admin/source/repos/Timber/Timber/assetConfigCopy.json");
+    QFile configFile("C:/Users/Admin/source/repos/Timber/Debug/assetConfigCopy.json");
     if(!configFile.open(QIODevice::ReadWrite | QIODevice::Text)){
         qWarning()<<"Failed to open config file for reading and writing.";
         return;
@@ -815,6 +818,37 @@ void MainWindow::setUPSetAsCurrentButton() {
     connect(ui->btnSetAsCurrent, &QPushButton::clicked, this, &MainWindow::setCurrentAsset);
 }
 
+/*
+ * Run Game
+*/
+void MainWindow::onRunGameButtonClicked(){
+    // path of the debug executable
+    QString executablePath = "C:/Users/Admin/source/repos/Timber/Debug/Timber.exe";
+
+    // Creating a process to run executable
+    QProcess *process = new QProcess(this);
+
+    //Set working directory
+    process->setWorkingDirectory("C:/Users/Admin/source/repos/Timber/Debug");
+    // Start the executable
+    process->start(executablePath);
+
+    // Check if the process starts correctly
+    if (!process->waitForStarted()) {
+        // If it failed to start, show an error message
+        QMessageBox::warning(this, "Error", "Failed to start the game.");
+        qDebug() << "Error: " << process->errorString();
+    } else {
+        qDebug() << "Game started successfully.";
+    }
+}
+
+/*
+ * Push Button : Run Game
+*/
+void MainWindow::setUPRunGameItemButton(){
+    connect(ui->btnRunGame, &QPushButton::clicked, this, &MainWindow::onRunGameButtonClicked);
+}
 
 /*
  * Destructor

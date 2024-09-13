@@ -70,6 +70,7 @@ public:
     QPushButton *btnSetAsCurrent;
     QWidget *previewPane;
     QGraphicsView *imagePreview;
+    QPushButton *btnRunGame;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -395,6 +396,9 @@ public:
 "    background-color: #FFFFFF;  /* Crisp white background on hover */\n"
 "}\n"
 ""));
+        btnRunGame = new QPushButton(previewPane);
+        btnRunGame->setObjectName("btnRunGame");
+        btnRunGame->setGeometry(QRect(10, 310, 261, 61));
 
         horizontalLayout_4->addWidget(previewPane);
 
@@ -440,6 +444,7 @@ public:
         addItemStatus->setText(QString());
         btnRemoveItem->setText(QCoreApplication::translate("MainWindow", "Remove Item", nullptr));
         btnSetAsCurrent->setText(QCoreApplication::translate("MainWindow", "Set As Current", nullptr));
+        btnRunGame->setText(QCoreApplication::translate("MainWindow", "Run Game", nullptr));
     } // retranslateUi
 
 };
