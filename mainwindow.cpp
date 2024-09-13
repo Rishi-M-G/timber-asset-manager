@@ -8,6 +8,7 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+    , assetsLoaded(false)
 {
     ui->setupUi(this);
 
@@ -25,6 +26,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     //Function Call: Load Assets from assetConfig.json
     loadCurrentAssetsFromConfig();
+
+    //testloadCurrentAssetsFromConfig();
 
     //Function Call: highlight current assets in timber
     highlightCurrentAssets();
@@ -347,6 +350,11 @@ void MainWindow::setUPRemoveItemButtonStatus(){
 */
 
 QSet<QString> MainWindow::loadCurrentAssetsFromConfig(){
+    // Return Cached assets if already loaded
+    if(assetsLoaded){
+        return cachedAssets;
+    }
+
     QFile configFile("C:/Users/Admin/source/repos/Timber/Debug/assetConfigCopy.json");
     if(!configFile.open(QIODevice::ReadOnly | QIODevice::Text)){
         qDebug() << "Failed to open config file.";
@@ -364,14 +372,26 @@ QSet<QString> MainWindow::loadCurrentAssetsFromConfig(){
     }
     //add other assets later
 
-    return currentAssets;
+    // Cache the assets
+    cachedAssets = currentAssets;
+    assetsLoaded = true;
+    return cachedAssets;
 }
+
+/*
+ * Reload Assets
+*/
+void MainWindow::reloadAssets(){
+    assetsLoaded = false;
+    cachedAssets = loadCurrentAssetsFromConfig();
+}
+
 
 /*
  * Testing: loadCurrentAssetsFromConfig
 */
 void MainWindow::testloadCurrentAssetsFromConfig(){
-    QSet<QString> assets = loadCurrentAssetsFromConfig();
+    QSet<QString> assets = cachedAssets;
 
     qDebug()<<"Loaded Assets:";
     for(const QString &asset:assets){
@@ -383,7 +403,7 @@ void MainWindow::testloadCurrentAssetsFromConfig(){
 */
 void MainWindow::highlightCurrentAssets(){
     // Load and extract data from the config file
-    QSet<QString> currentAssets = loadCurrentAssetsFromConfig();
+    QSet<QString> currentAssets = cachedAssets;
 
     // Create a new set containing only the filenames
     QSet<QString> currentAssetNames;
@@ -514,7 +534,7 @@ void MainWindow::handleRemoveItem(){
     QString fullPath = targetDirectory+"/"+assetName;
 
     // Check if this asset is currently in use
-    QSet<QString> currentAssets = loadCurrentAssetsFromConfig();
+    QSet<QString> currentAssets = cachedAssets;
 
     // Create a new set containing only the filenames
     QSet<QString> currentAssetNames;
@@ -648,7 +668,7 @@ void MainWindow::updateSetCurrentButtonState(){
     QString selectedAsset = selectedItem->text();
 
     // Check if this is already the current asset in the config
-    QSet<QString> currentAssets = loadCurrentAssetsFromConfig();
+    QSet<QString> currentAssets = cachedAssets;
 
     // Create a new set containing only the filenames of current assets
     QSet<QString> currentAssetNames;

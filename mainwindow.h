@@ -41,6 +41,10 @@ private:
     // QMediaPlayer* mediaPlayer;
     // QPushButton* playButton;
 
+    QSet<QString> cachedAssets;
+    bool assetsLoaded;
+
+
     void updateImagePreview(const QString& imagePath);
     void populateItemList();
     void handleAddItem();
@@ -60,6 +64,7 @@ private:
     void setUPSetAsCurrentButton();
     void onRunGameButtonClicked();
     void setUPRunGameItemButton();
+    void reloadAssets();
 
     //************
 };
