@@ -35,7 +35,13 @@ MainWindow::MainWindow(QWidget *parent)
     //Function Call: Switching remove button status
     setUPRemoveItemButtonStatus();
 
-    updateRemoveButtonState();
+    //Function Call: remove button status
+    //updateRemoveButtonState();
+
+    //Function Call: Set As Current button status
+    setUPSetAsCurrentButton();
+
+
 
 }
 /*
@@ -338,7 +344,7 @@ void MainWindow::setUPRemoveItemButtonStatus(){
 */
 
 QSet<QString> MainWindow::loadCurrentAssetsFromConfig(){
-    QFile configFile("C:/Users/Admin/source/repos/Timber/Timber/assetConfig.json");
+    QFile configFile("C:/Users/Admin/source/repos/Timber/Timber/assetConfigCopy.json");
     if(!configFile.open(QIODevice::ReadOnly | QIODevice::Text)){
         qDebug() << "Failed to open config file.";
         return QSet<QString>();

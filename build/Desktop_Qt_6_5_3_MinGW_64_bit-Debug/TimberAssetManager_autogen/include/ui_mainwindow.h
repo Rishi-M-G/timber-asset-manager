@@ -336,6 +336,30 @@ public:
         btnSetAsCurrent = new QPushButton(contentBox);
         btnSetAsCurrent->setObjectName("btnSetAsCurrent");
         btnSetAsCurrent->setGeometry(QRect(320, 310, 111, 24));
+        btnSetAsCurrent->setStyleSheet(QString::fromUtf8("QPushButton#btnSetAsCurrent {\n"
+"    background-color: #4CAF50;  /* Green background */\n"
+"    color: white;  /* White text */\n"
+"    border: none;\n"
+"    border-radius: 4px;\n"
+"    padding: 3px 8px;\n"
+"    font-family: \"Segoe UI\", sans-serif;\n"
+"    font-size: 8pt;\n"
+"    transition: background-color 0.3s ease;  /* Smooth transition for background color */\n"
+"}\n"
+"\n"
+"QPushButton#btnSetAsCurrent:hover {\n"
+"    background-color: #43A047;  /* Darker green on hover */\n"
+"}\n"
+"\n"
+"QPushButton#btnSetAsCurrent:pressed {\n"
+"    background-color: #388E3C;  /* Even darker green when pressed */\n"
+"}\n"
+"\n"
+"QPushButton#btnSetAsCurrent:disabled {\n"
+"    background-color: #CCCCCC;  /* Light gray background when disabled */\n"
+"    color: #666666;  /* Darker gray text */\n"
+"}\n"
+""));
 
         horizontalLayout_4->addWidget(contentBox);
 
