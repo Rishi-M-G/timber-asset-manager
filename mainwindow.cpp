@@ -12,7 +12,6 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-
     populateItemList();//Function Call :  Populating image list from corresponding graphics folder
     initializeUIComponents();//Function Call :  Connecting UI Components for Image Preview
     setUpListWidgetConnections();//Function Call: connection signals for all relevant QListWidget objects
@@ -36,8 +35,8 @@ void MainWindow::initializeUIComponents(){
     scene = new QGraphicsScene(this);
     ui->imagePreview->setScene(scene);
     ui->imagePreview->setAlignment(Qt::AlignCenter);
-
 }
+
 /*
  * Connecting UI Components with respective file paths for Asset List View
 */
