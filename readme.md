@@ -12,7 +12,7 @@ Managing assets, such as images, audio files, and fonts, is critical for game de
 ---
 
 ## **Features**
-![Image Preview](./Images/FeaturesImage.jpg)
+![Image Preview](/Images/FeaturesImage.jpg)
 ### 1. Image Preview
 The tool provides an image preview option that allows users to quickly view the images associated with their game assets.
 
