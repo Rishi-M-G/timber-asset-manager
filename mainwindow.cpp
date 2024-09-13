@@ -12,43 +12,20 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    //Function Call :  Populating image list from corresponding graphics folder
-    populateItemList();
 
-    //Function Call :  Connecting UI Components for Image Preview
-    initializeUIComponents();
-
-    //Function Call: connection signals for all relevant QListWidget objects
-    setUpListWidgetConnections();
-
-    //Function Call: Adding an item to the existing assets
-    setUPAddItemButton();
-
-    //Function Call: Load Assets from assetConfig.json
-    loadCurrentAssetsFromConfig();
-
+    populateItemList();//Function Call :  Populating image list from corresponding graphics folder
+    initializeUIComponents();//Function Call :  Connecting UI Components for Image Preview
+    setUpListWidgetConnections();//Function Call: connection signals for all relevant QListWidget objects
+    setUPAddItemButton();//Function Call: Adding an item to the existing assets
+    loadCurrentAssetsFromConfig();//Function Call: Load Assets from assetConfig.json
     //testloadCurrentAssetsFromConfig();
-
-    //Function Call: highlight current assets in timber
-    highlightCurrentAssets();
-
-    //Function Call: Removing an item to the existing assets
-    setUPRemoveItemButton();
-
-    //Function Call: Switching remove button status
-    setUPRemoveItemButtonStatus();
-
+    highlightCurrentAssets();//Function Call: highlight current assets in timber
+    setUPRemoveItemButton();//Function Call: Removing an item to the existing assets
+    setUPRemoveItemButtonStatus();//Function Call: Switching remove button status
     //Function Call: remove button status
     //updateRemoveButtonState();
-
-    //Function Call: Set As Current button status
-    setUPSetAsCurrentButton();
-
-    //Function Call: Run Game Button
-    setUPRunGameItemButton();
-
-
-
+    setUPSetAsCurrentButton();//Function Call: Set As Current button status
+    setUPRunGameItemButton();//Function Call: Run Game Button
 }
 /*
  * Initializing UI Components for Image Preview Functionality
@@ -370,7 +347,18 @@ QSet<QString> MainWindow::loadCurrentAssetsFromConfig(){
     for (const QString &key : graphicsObj.keys()) {
         currentAssets.insert(graphicsObj[key].toString());
     }
-    //add other assets later
+
+    QJsonObject audioObj = jsonObj["audio"].toObject();
+    for(const QString &key : audioObj.keys()){
+        currentAssets.insert(audioObj[key].toString());
+    }
+
+    QJsonObject fontsObj = jsonObj["fonts"].toObject();
+    for(const QString &key : fontsObj.keys()){
+        currentAssets.insert(fontsObj[key].toString());
+    }
+
+
 
     // Cache the assets
     cachedAssets = currentAssets;
